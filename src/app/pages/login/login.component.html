@@ -1,0 +1,35 @@
+<app-initheader></app-initheader>
+<div>
+    <div class="pt-40"></div>
+    <mat-card class="w-1/4 ml-auto mr-auto">
+        <mat-card-title>Bienvenido!</mat-card-title>
+        <mat-card-content>
+            <form class="text-left">
+                <mat-form-field appearance="outline" class="w-full">
+                  <mat-label>Usuario</mat-label>
+                  <input matInput placeholder="Ingrese usuario" required>
+                  <mat-error>Complete este campo es requerido!</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline" class="w-full">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput placeholder="Ingrese contraseña" [type]="hide ? 'password' : 'text'" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error>Complete este campo es requerido!</mat-error>
+                </mat-form-field>
+    
+                <p class="text-blue-600 text-right">¿Olvidaste tu contraseña? <a href="ww.google.com">Click Aquí</a></p>
+                <br>
+                <div class="text-center">
+                  <button class = "w-full bg-blue-300 text-white" mat-raised-button>Ingresar</button>
+                </div>
+                <br>
+                <p class="text-black text-center">¿Si no tienes una cuenta? 
+                    <a class="text-blue-600" routerLink="/register-option">Regístrate aquí</a>
+                </p>
+                </form>
+        </mat-card-content>
+    </mat-card>
+</div>
