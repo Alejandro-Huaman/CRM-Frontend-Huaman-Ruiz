@@ -1,1 +1,57 @@
-
+<app-initheader></app-initheader>
+<div class="pb-10"></div>
+<div>
+    <mat-card class="w-2/6 ml-auto mr-14">
+        <mat-card-title class="text-left">Regístrate {{usertype}}</mat-card-title>
+        <form class="form text-left">
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Nombres</mat-label>
+          <input matInput placeholder="Ingrese sus nombres" required>
+          <mat-error>Complete este campo es requerido!</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Apellidos</mat-label>
+          <input matInput placeholder="Ingrese sus apellidos" required>
+          <mat-error>Complete este campo es requerido!</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Empresa</mat-label>
+            <input matInput placeholder="Ingrese su empresa" required>
+            <mat-error>Complete este campo es requerido!</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Ingrese email"  required maxlength="50">
+          <mat-error >Complete este campo es requerido!</mat-error>
+          <mat-error >Email invalido complete con un email!</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Usuario</mat-label>
+          <input matInput placeholder="Ingrese nombre de usuario" required>
+          <mat-error>Complete este campo es requerido!</mat-error>
+        </mat-form-field>
+        <br>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Telefono</mat-label>
+            <input matInput placeholder="Ingrese telefono" required maxlength="9">
+            <mat-error>Complete este campo es requerido!</mat-error>
+          </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Ingrese contraseña" required minlength="8" maxlength="20">
+          <mat-error>Complete este campo es requerido!</mat-error>
+          <mat-error>Requiere una contraseña minimo de 8 caracteres</mat-error>
+        </mat-form-field>
+        
+        <div class="text-center">
+          <button class="bg-blue-400 text-white" mat-raised-button (click)="RegisterUser()">Registrarse</button>
+        </div>  
+      </form>
+      </mat-card>
+    <div class="pb-10"></div>
+</div>

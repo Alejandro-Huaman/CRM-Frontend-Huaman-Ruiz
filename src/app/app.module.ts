@@ -10,6 +10,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { OptionsRegisterComponent } from './pages/register/options-register/options-register.component';
 import { InitheaderComponent } from './pages/headers/initheader/initheader.component';
 import { HeaderHomeComponent } from './pages/headers/header-home/header-home.component';
+import { RegisterAnswerComponent } from './pages/dialog-answer-messages/register-answer/register-answer.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [	
@@ -18,7 +20,9 @@ import { HeaderHomeComponent } from './pages/headers/header-home/header-home.com
     RegisterComponent,
     OptionsRegisterComponent,
     InitheaderComponent,
-    HeaderHomeComponent
+    HeaderHomeComponent,
+    RegisterAnswerComponent,
+    HomeComponent
    ],
   imports: [
     BrowserModule,
