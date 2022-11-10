@@ -12,6 +12,8 @@ import { InitheaderComponent } from './pages/headers/initheader/initheader.compo
 import { HeaderHomeComponent } from './pages/headers/header-home/header-home.component';
 import { RegisterAnswerComponent } from './pages/dialog-answer-messages/register-answer/register-answer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CustomersComponent } from './pages/customers/customers.component';
+import { SalesComponent } from './pages/sales/sales.component';
 
 @NgModule({
   declarations: [	
@@ -22,7 +24,9 @@ import { HomeComponent } from './pages/home/home.component';
     InitheaderComponent,
     HeaderHomeComponent,
     RegisterAnswerComponent,
-    HomeComponent
+    HomeComponent,
+    CustomersComponent,
+    SalesComponent
    ],
   imports: [
     BrowserModule,

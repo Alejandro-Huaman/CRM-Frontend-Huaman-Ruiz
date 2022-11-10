@@ -1,14 +1,24 @@
 <header>
   <mat-toolbar class="bg-blue-300">
-      <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
+      <a href="https://vida-automation.com/">
+        <img src="assets/images/Logo.png">
+      </a>
       <span>CRM</span>
       <div class="flex-auto"></div>
+      <a routerLink="/home">Home</a>
+      <div class="pr-10"></div>
+      <a routerLink="/customers">Clientes</a>
+      <div class="pr-10"></div>
+      <a routerLink="/sales">Ventas</a>
+      <div class="pr-10"></div>
       <img src="assets/images/perfil.png" class="h-14">
       <div class="pr-2"></div>
-      <button>
+      <button [matMenuTriggerFor]="menu">
         <img src="assets/images/arrow-down.png" class="h-5 w-5">
       </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Perfil</button>
+        <button mat-menu-item routerLink="/login">Salir</button>
+      </mat-menu>
   </mat-toolbar>
 </header>
