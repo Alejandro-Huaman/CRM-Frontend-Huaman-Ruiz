@@ -1,0 +1,34 @@
+<h1 mat-dialog-title class="text-center">Nueva oportunidad de ventas</h1>
+<div mat-dialog-content>
+    <form>
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Ingrese el nombre de su venta" required maxlength="30">
+      <mat-error>Complete este campo es requerido!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Nombre de Cliente</mat-label>
+      <input matInput placeholder="Ingrese el nombre del cliente" required maxlength="30">
+      <mat-error>Complete este campo es requerido!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Fecha</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Ingrese la fecha de finalización" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>Complete este campo es requerido!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Importe</mat-label>
+      <input matInput placeholder="Ingrese el importe de la venta"  required>
+      <mat-error >Complete este campo es requerido!</mat-error>
+      <mat-error >Email invalido complete con un email!</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div class="text-center">
+  <button matDialogClose class="bg-blue-400 text-white" mat-raised-button (click)="RegisterSales()">Guardar</button>
+</div>

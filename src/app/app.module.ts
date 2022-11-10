@@ -14,6 +14,9 @@ import { RegisterAnswerComponent } from './pages/dialog-answer-messages/register
 import { HomeComponent } from './pages/home/home.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { SalesComponent } from './pages/sales/sales.component';
+import { CreateCustomersComponent } from './pages/customers/create-customers/create-customers.component';
+import { CreateSalesComponent } from './pages/sales/create-sales/create-sales.component';
+import { ActivitiesComponent } from './pages/activities/activities.component';
 
 @NgModule({
   declarations: [	
@@ -26,7 +29,10 @@ import { SalesComponent } from './pages/sales/sales.component';
     RegisterAnswerComponent,
     HomeComponent,
     CustomersComponent,
-    SalesComponent
+    SalesComponent,
+    CreateCustomersComponent,
+    CreateSalesComponent,
+    ActivitiesComponent
    ],
   imports: [
     BrowserModule,

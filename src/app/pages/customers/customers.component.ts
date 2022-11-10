@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { CreateCustomersComponent } from './create-customers/create-customers.component';
 
 @Component({
   selector: 'app-customers',
@@ -13,11 +15,15 @@ export class CustomersComponent implements OnInit {
   
   @ViewChild(MatPaginator, {static: true}) paginator!:MatPaginator 
   
-  constructor() { 
+  constructor(public dialog:MatDialog) { 
   }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  OpenCreateCustomer(){
+    this.dialog.open(CreateCustomersComponent)
   }
 
 }
