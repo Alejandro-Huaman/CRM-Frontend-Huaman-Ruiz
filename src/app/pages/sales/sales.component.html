@@ -1,6 +1,6 @@
 <app-header-home></app-header-home>
-<div class="pb-10"></div>
-<mat-card>
+<div class="pb-5"></div>
+<mat-card class="mat-elevation ml-5 mr-5">
   <div class="pb-5"></div>
   <div class="text-center">
     <div class="inline-flex">
@@ -8,10 +8,77 @@
       <div class="pr-96"></div>
       <div class="pr-96"></div>
       <div class="pr-96"></div>
-      <div class="pr-96"></div>
+      <div class="pr-60"></div>
       <button mat-raised-button>
         Nuevas ventas
       </button>
     </div>
   </div>
+  <div class="pb-10"></div>
+  <table class="w-full border-4">
+    <tr>
+      <th>
+        <mat-card>
+          <h1 class="text-2xl">Calificado</h1>
+          <div class="pb-4"></div>
+          <h1>123,000 $</h1>
+        </mat-card>
+      </th>
+      <th>
+        <mat-card>
+          <h1 class="text-2xl">Necesita Análisis</h1>
+          <div class="pb-4"></div>
+          <h1>123,000 $</h1>
+        </mat-card>
+      </th>
+      <th>
+        <mat-card>
+          <h1 class="text-2xl">Presupuesto</h1>
+          <div class="pb-4"></div>
+          <h1>123,000 $</h1>
+        </mat-card>
+      </th>
+      <th>
+        <mat-card>
+          <h1 class="text-2xl">Negociación</h1>
+          <div class="pb-4"></div>
+          <h1>123,000 $</h1>
+        </mat-card>
+      </th>
+      <th>
+        <mat-card>
+          <h1 class="text-2xl">Cerrada</h1>
+          <div class="pb-4"></div>
+          <h1>123,000 $</h1>
+        </mat-card>
+      </th>
+    </tr>
+    <div class="pb-5"></div>
+    <tr *ngFor="let item of list">
+      <th class="border-x-4">
+        <mat-card class="w-4/5 ml-auto mr-auto">
+          <mat-card-title>Venta 1</mat-card-title>
+          <mat-card-content>
+            <h1>Venta de auto</h1>
+            <h1>Cliente 1</h1>
+          </mat-card-content>
+        </mat-card>
+        <br>
+      </th>
+      <th class="border-x-4">
+
+      </th>
+      <th class="border-x-4">
+        
+      </th>
+      <th class="border-x-4">
+        
+      </th>
+      <th class="border-x-4">
+        
+      </th>
+    </tr>
+  </table>
+  <div class="pb-5"></div>
 </mat-card>
+<div class="pb-5"></div>

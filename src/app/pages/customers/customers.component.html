@@ -1,11 +1,14 @@
 <app-header-home></app-header-home>
 <div class="pb-10"></div>
-<mat-card class="mat-elevation-z8">
+<mat-card class="mat-elevation mr-5 ml-5">
   <div class="pb-10"></div>
   <div class="text-center">
     <div class="inline-flex">
       <h1 class="pt-2">Clientes potenciales!</h1>
-      <div class="pr-10"></div>
+      <div class="pr-96"></div>
+      <div class="pr-96"></div>
+      <div class="pr-96"></div>
+      <div class="pr-60"></div>
       <button mat-raised-button>
         Agregar clientes potenciales
       </button>
@@ -13,7 +16,7 @@
   </div>
   <div class="pb-20"></div>
 
-  <div class="mat-elevation-z8 w-4/5 ml-auto mr-auto">
+  <div class="border ml-5 mr-5">
     <table mat-table [dataSource]="dataSource" class="w-full">
   
       <ng-container matColumnDef="position">
@@ -45,4 +48,6 @@
                    aria-label="Select page of periodic elements">
     </mat-paginator>
   </div>
+  <div class="pb-5"></div>
 </mat-card>
+<div class="pb-5"></div>
