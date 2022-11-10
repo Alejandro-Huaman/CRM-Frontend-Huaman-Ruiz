@@ -17,6 +17,7 @@ import { SalesComponent } from './pages/sales/sales.component';
 import { CreateCustomersComponent } from './pages/customers/create-customers/create-customers.component';
 import { CreateSalesComponent } from './pages/sales/create-sales/create-sales.component';
 import { ActivitiesComponent } from './pages/activities/activities.component';
+import { InsideSaleComponent } from './pages/sales/inside-sale/inside-sale.component';
 
 @NgModule({
   declarations: [	
@@ -32,7 +33,8 @@ import { ActivitiesComponent } from './pages/activities/activities.component';
     SalesComponent,
     CreateCustomersComponent,
     CreateSalesComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    InsideSaleComponent
    ],
   imports: [
     BrowserModule,

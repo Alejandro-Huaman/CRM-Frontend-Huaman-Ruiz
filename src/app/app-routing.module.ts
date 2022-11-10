@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { OptionsRegisterComponent } from './pages/register/options-register/options-register.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CreateSalesComponent } from './pages/sales/create-sales/create-sales.component';
+import { InsideSaleComponent } from './pages/sales/inside-sale/inside-sale.component';
 import { SalesComponent } from './pages/sales/sales.component';
 
 const routes: Routes = [
@@ -25,6 +26,9 @@ const routes: Routes = [
   {path:"sales",component: SalesComponent},
   {path:"activities",component: ActivitiesComponent},
   
+  //Inside Sections
+  {path:"inside-sale",component: InsideSaleComponent},
+
 ];
 
 @NgModule({
