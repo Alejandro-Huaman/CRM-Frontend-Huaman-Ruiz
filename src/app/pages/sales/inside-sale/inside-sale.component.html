@@ -1,3 +1,279 @@
-<p>
-  inside-sale works!
-</p>
+<app-header-home></app-header-home>
+<div class="pb-5"></div>
+<mat-card class="mat-elevation ml-5 mr-5">
+  <div class="inline-flex">
+    <div class="pt-3">
+      <mat-icon>add_shopping_cart</mat-icon>
+    </div>
+    <div class="pr-5"></div>
+    <div>
+      <h1>Venta</h1>
+      <h2>Venta de auto</h2>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="inline-flex">
+    <div>
+      <h1>Nombre del cliente:</h1>
+      <h2>Cliente 1</h2>
+    </div>
+    <div class="pr-20"></div>
+    <div>
+      <h1>Fechas de cierre:</h1>
+      <h2>10/11/2022</h2>
+    </div>
+    <div class="pr-20"></div>
+    <div>
+      <h1>Importe:</h1>
+      <h2>123,000 $</h2>
+    </div>
+    <div class="pr-20"></div>
+    <div>
+      <h1>Propietario de la venta:</h1>
+      <h2>Alejandro Sebastián Huamán Ruiz</h2>
+    </div>
+  </div>
+</mat-card>
+<br>
+<table class="w-full">
+  <tr>
+    <th>
+      <mat-card class="mat-elevation ml-5">
+        <mat-card class="font-normal">
+          <h1 class="text-left font-bold">Detalles de la venta</h1>
+          <br>
+          <h2 class="text-left">Nombre de venta: Venta de auto</h2>
+          <div class="pb-2"></div>
+          <h2 class="text-left">Propietario: Alejandro Sebastián Huamán Ruiz</h2>
+          <div class="pb-2"></div>
+          <h2 class="text-left">Cliente: Cliente 1</h2>
+          <div class="pb-2"></div>
+          <h2 class="text-left">Fecha a finalizar: 10/11/2022</h2>
+          <div class="pb-2"></div>
+          <h2 class="text-left">Importe de la venta: 123,000 $</h2>
+          <div class="pb-2"></div>
+          <h2 class="text-left">Estado de la venta: Calificado</h2>
+        </mat-card>
+        <div class="pb-5"></div>
+        <mat-card class="text-left font-normal">
+          <h1 class="font-bold">Organización</h1>
+          <br>
+          <div class="inline-flex">
+            <mat-icon>business</mat-icon>
+            <div class="pr-5"></div>
+            <h1>Organizacion de cliente</h1>
+          </div>
+        </mat-card>
+        <div class="pb-5"></div>
+        <mat-card class="text-left font-normal">
+          <h1 class="font-bold">Participantes</h1>
+          <br>
+          <div class="inline-flex">
+            <img src="assets/images/perfil.png" class="h-14">
+            <div class="pr-5"></div>
+            <h1 class="pt-5">Cliente 1</h1>
+          </div>
+          <div class="pr-5"></div>
+          <div class="inline-flex">
+            <img src="assets/images/perfil.png" class="h-14">
+            <div class="pr-5"></div>
+            <h1 class="pt-5">Alejandro Sebastián Huamán Ruiz</h1>
+          </div>
+        </mat-card>
+        <div class="pb-5"></div>
+        <mat-card class="text-left font-normal">
+          <h1 class="font-bold">Resumen General</h1>
+          <br>
+          <div class="inline-flex">
+            <h1>Antiguedad del negocio perteneciente al cliente:</h1>
+            <div class="pr-5"></div>
+            <h1>2 años</h1>
+          </div>
+          <div class="pb-2"></div>
+          <div class="inline-flex">
+            <h1>Ultima creación de una actividad:</h1>
+            <div class="pr-5"></div>
+            <h1>11/10/2022</h1>
+          </div>
+          <div class="pb-2"></div>
+          <div class="inline-flex">
+            <h1>Venta creada:</h1>
+            <div class="pr-5"></div>
+            <h1>11/10/2022</h1>
+          </div>
+        </mat-card>
+      </mat-card>
+    </th>
+    <div class="pr-5"></div>
+    <th class="align-top">
+      <mat-card class="mat-elevation mr-5">
+        <div class="text-left">
+          <h1>Añadir actividades</h1>
+          <div class="pb-3"></div>
+          <mat-button-toggle-group #usergroup="matButtonToggleGroup" value="email">
+            <mat-button-toggle value="email" class="font-normal">Añadir correo electronico</mat-button-toggle>
+            <mat-button-toggle value="appointment" class="font-normal">Añadir citas</mat-button-toggle>
+            <mat-button-toggle value="task" class="font-normal">Añadir tareas</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>        
+        <div class="pb-5"></div>
+
+          <div *ngIf="usergroup.value == 'email'">
+            <div class="pb-5"></div>
+            <form class="form text-left">
+              <h1>Descripción:</h1>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput placeholder="Ingrese la descripcion" maxlength="100"></textarea>
+              </mat-form-field>
+              <br>
+              <div class="inline-flex">
+                <div>
+                  <h1>Titulo:</h1>
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Titulo</mat-label>
+                    <input matInput placeholder="Ingrese el titulo" required maxlength="30">
+                    <mat-error>Complete este campo es requerido!</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pr-5"></div>
+                <div>
+                  <h1>Asignado al cliente:</h1>
+                  <h2 class="pt-5 font-normal">Cliente 1</h2>
+                </div>
+                <div class="pr-10"></div>
+                <div>
+                  <h1>Asignado al correo:</h1>
+                  <h2 class="pt-5 font-normal">cliente1@gmail.com</h2>
+                </div>
+              </div>
+            </form>
+            <div class="text-right">
+              <div class="inline-flex">
+                <button mat-raised-button>Limpiar</button>
+                <div class="pr-5"></div>
+                <button mat-raised-button>Enviar</button>
+              </div>
+            </div>
+            <div class="pb-2"></div>
+          </div>
+
+          <div *ngIf="usergroup.value == 'appointment'">
+            <div class="pb-5"></div>
+            <form class="form text-left">
+              <h1>Descripción:</h1>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput placeholder="Ingrese la descripcion" maxlength="100"></textarea>
+              </mat-form-field>
+              <br>
+              <div class="inline-flex">
+                <div>
+                  <h1>Titulo:</h1>
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Titulo</mat-label>
+                    <input matInput placeholder="Ingrese el titulo" required maxlength="30">
+                    <mat-error>Complete este campo es requerido!</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pr-5"></div>
+                <div>
+                  <h1>Fecha:</h1>
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Fecha de reunión</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="Ingrese la fecha de reunión" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error>Complete este campo es requerido!</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pr-5"></div>
+                <div>
+                  <h1>Hora Inicial:</h1>
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Hora inicial de reunión</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
+                    </mat-select>
+                    <mat-error>Complete este campo es requerido!</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pr-5"></div>
+                <div>
+                  <h1>Hora Final:</h1>
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Hora final de reunión</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
+                    </mat-select>
+                    <mat-error>Complete este campo es requerido!</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pr-5"></div>
+                <div>
+                  <h1>Asignado al cliente:</h1>
+                  <h2 class="pt-5 font-normal">Cliente 1</h2>
+                </div>
+              </div>
+            </form>
+            <div class="text-right">
+              <div class="inline-flex">
+                <button mat-raised-button>Limpiar</button>
+                <div class="pr-5"></div>
+                <button mat-raised-button>Agregar</button>
+              </div>
+            </div>
+            <div class="pb-2"></div>
+          </div>
+
+          <div *ngIf="usergroup.value == 'task'">
+            <div class="pb-5"></div>
+            <form class="form text-left">
+              <h1>Descripción:</h1>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput placeholder="Ingrese la descripcion" maxlength="100"></textarea>
+              </mat-form-field>
+              <br>
+              <div class="inline-flex">
+                <div>
+                  <h1>Titulo:</h1>
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Titulo</mat-label>
+                    <input matInput placeholder="Ingrese el titulo" required maxlength="30">
+                    <mat-error>Complete este campo es requerido!</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pr-5"></div>
+                <div>
+                  <h1>Fecha:</h1>
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>Fecha de reunión</mat-label>
+                    <input matInput [matDatepicker]="picker2" placeholder="Ingrese la fecha de la tarea" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                    <mat-error>Complete este campo es requerido!</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pr-5"></div>
+                <div>
+                  <h1>Asignado al cliente:</h1>
+                  <h2 class="pt-5 font-normal">Cliente 1</h2>
+                </div>
+              </div>
+            </form>
+            <div class="text-right">
+              <div class="inline-flex">
+                <button mat-raised-button>Limpiar</button>
+                <div class="pr-5"></div>
+                <button mat-raised-button>Agregar</button>
+              </div>
+            </div>
+            <div class="pb-2"></div>
+          </div>
+      </mat-card>
+    </th>
+  </tr>
+</table>
+<div class="pb-5"></div>
