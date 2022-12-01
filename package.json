@@ -24,6 +24,7 @@
     "@angular/router": "^14.0.0",
     "@ngneat/tailwind": "^7.0.3",
     "rxjs": "~7.5.0",
+    "swiper": "^8.4.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

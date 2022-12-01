@@ -18,6 +18,7 @@ import { CreateCustomersComponent } from './pages/customers/create-customers/cre
 import { CreateSalesComponent } from './pages/sales/create-sales/create-sales.component';
 import { ActivitiesComponent } from './pages/activities/activities.component';
 import { InsideSaleComponent } from './pages/sales/inside-sale/inside-sale.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [	
@@ -42,7 +43,8 @@ import { InsideSaleComponent } from './pages/sales/inside-sale/inside-sale.compo
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

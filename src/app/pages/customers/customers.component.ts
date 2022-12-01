@@ -10,7 +10,7 @@ import { CreateCustomersComponent } from './create-customers/create-customers.co
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['Razon social', 'Ruc', 'Ventas del mes', 'Ventas del año'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   
   @ViewChild(MatPaginator, {static: true}) paginator!:MatPaginator 

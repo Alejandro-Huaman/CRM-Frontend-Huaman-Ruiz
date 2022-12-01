@@ -1,4 +1,62 @@
 <app-header-home></app-header-home>
-<div>
-    <h1>Home</h1>
-</div>
+<br>
+<section>
+    <swiper
+    [slidesPerView]="1"
+    [spaceBetween]="10"
+    [navigation]="true"
+    [loop]="true"
+    [pagination]="{
+        clickable: true
+    }"
+    class="mySwiper"
+>
+<ng-template swiperSlide>
+    <div style="background-image: url('https://cdn-blog1.fibrasynormasdecolombia.com/wp-content/uploads/2021/03/1600993945916-1-810x475.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;" class="text-center">
+        <div class="pb-10"></div>
+        <div class="inline-flex">
+            <div class="text-left ">
+                <div class="pt-52"></div>
+                <h1>Somos</h1>
+                <br>
+                <h2>Especialistas en optimizar los procesos de trabajo</h2>
+            </div>
+            <div class="pr-48"></div>
+            <img src="https://blogs.unitec.mx/content/dam/blogs/imagenes/corp_samara/que-es-ingenieria-todo-sobre-el-camino-profesional-2-compressor.jpg" class="h-full">
+        </div>
+        <div class="pb-14"></div>
+    </div>
+</ng-template>
+<ng-template swiperSlide>
+    <div style="background-image: url('https://www.ulima.edu.pe/sites/default/files/styles/600x300/public/news/img/inge_ind_1.jpg?itok=6T74THaO'); background-position: center; background-size: cover; background-repeat: no-repeat;" class="text-center">
+        <div class="pb-40"></div>
+        <div style="padding-left: 29%;">
+            <img src="assets/images/Home.png">
+        </div>
+        <div class="pb-40"></div>
+    </div>
+</ng-template>
+</swiper>
+</section>
+
+<meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
