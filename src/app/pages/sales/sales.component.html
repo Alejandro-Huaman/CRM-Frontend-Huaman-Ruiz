@@ -51,14 +51,14 @@
       </th>
     </tr>
     <div class="pb-5"></div>
-    <tr *ngFor="let item of list">
+    <tr *ngFor="let item of dataSource.data">
       <th class="border-x-4">
         <button class="w-full" routerLink="/inside-sale">
           <mat-card class="w-4/5 ml-auto mr-auto">
-            <mat-card-title>Venta 1</mat-card-title>
+            <mat-card-title>{{item.name}}</mat-card-title>
             <mat-card-content>
-              <h1>Venta de auto</h1>
-              <h1>Cliente 1</h1>
+              <h1>{{item.amount}}</h1>
+              <h1>{{item.customer.name}}</h1>
             </mat-card-content>
           </mat-card>
         </button>

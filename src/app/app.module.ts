@@ -19,6 +19,7 @@ import { CreateSalesComponent } from './pages/sales/create-sales/create-sales.co
 import { ActivitiesComponent } from './pages/activities/activities.component';
 import { InsideSaleComponent } from './pages/sales/inside-sale/inside-sale.component';
 import { SwiperModule } from 'swiper/angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [	
@@ -44,7 +45,8 @@ import { SwiperModule } from 'swiper/angular';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    SwiperModule
+    SwiperModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

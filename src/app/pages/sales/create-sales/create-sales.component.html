@@ -1,34 +1,35 @@
 <h1 mat-dialog-title class="text-center">Nueva oportunidad de ventas</h1>
 <div mat-dialog-content>
-    <form>
+    <form [formGroup]="salesform">
     <mat-form-field appearance="outline" class="w-96">
       <mat-label>Nombre</mat-label>
-      <input matInput placeholder="Ingrese el nombre de su venta" required maxlength="30">
-      <mat-error>Complete este campo es requerido!</mat-error>
+      <input matInput formControlName="name" placeholder="Ingrese el nombre de su venta" required maxlength="30" [(ngModel)]="saleobj.name">
+      <mat-error *ngIf="salesform.controls['name'].dirty && salesform.hasError('required') || salesform.controls['name'].invalid">Complete este campo es requerido!</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline" class="w-96">
       <mat-label>Nombre de Cliente</mat-label>
-      <input matInput placeholder="Ingrese el nombre del cliente" required maxlength="30">
-      <mat-error>Complete este campo es requerido!</mat-error>
+      <mat-select formControlName="customername">
+        <mat-option *ngFor="let cname of customers" [value]="cname.name">{{cname.name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="salesform.controls['customername'].dirty && salesform.hasError('required') || salesform.controls['customername'].invalid">Complete este campo es requerido!</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline" class="w-96">
       <mat-label>Fecha de cierre</mat-label>
-      <input matInput [matDatepicker]="picker" placeholder="Ingrese la fecha de finalización" required>
+      <input matInput formControlName="date" [matDatepicker]="picker" placeholder="Ingrese la fecha de finalización" required [(ngModel)]="saleobj.finishdate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <mat-error>Complete este campo es requerido!</mat-error>
+      <mat-error *ngIf="salesform.controls['date'].dirty && salesform.hasError('required') || salesform.controls['date'].invalid">Complete este campo es requerido!</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline" class="w-96">
       <mat-label>Importe</mat-label>
-      <input matInput placeholder="Ingrese el importe de la venta"  required>
-      <mat-error >Complete este campo es requerido!</mat-error>
-      <mat-error >Email invalido complete con un email!</mat-error>
+      <input matInput formControlName="import" placeholder="Ingrese el importe de la venta"  required [(ngModel)]="saleobj.amount">
+      <mat-error *ngIf="salesform.controls['import'].dirty && salesform.hasError('required') || salesform.controls['import'].invalid">Complete este campo es requerido!</mat-error>
     </mat-form-field>
   </form>
 </div>
 <div class="text-center">
-  <button matDialogClose class="bg-blue-400 text-white" mat-raised-button (click)="RegisterSales()">Guardar</button>
+  <button [matDialogClose]="newsalecreated" class="bg-blue-400 text-white" mat-raised-button [disabled]="salesform.invalid" (click)="RegisterSales()">Guardar</button>
 </div>
