@@ -1,4 +1,4 @@
-<h1 mat-dialog-title class="text-center">Nueva oportunidad de ventas</h1>
+<h1 mat-dialog-title class="text-center">Nueva Cotización</h1>
 <div mat-dialog-content>
     <form [formGroup]="salesform">
     <mat-form-field appearance="outline" class="w-96">
@@ -17,7 +17,7 @@
     <br>
     <mat-form-field appearance="outline" class="w-96">
       <mat-label>Fecha de cierre</mat-label>
-      <input matInput formControlName="date" [matDatepicker]="picker" placeholder="Ingrese la fecha de finalización" required [(ngModel)]="saleobj.finishdate">
+      <input matInput formControlName="date" [matDatepicker]="picker" [min]="datenow" placeholder="Ingrese la fecha de finalización" required [(ngModel)]="saleobj.finishdate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
       <mat-error *ngIf="salesform.controls['date'].dirty && salesform.hasError('required') || salesform.controls['date'].invalid">Complete este campo es requerido!</mat-error>

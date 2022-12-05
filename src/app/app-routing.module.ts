@@ -20,14 +20,26 @@ const routes: Routes = [
   {path:"register/EngineeringChief",component: RegisterComponent},
   {path:"register-option",component: OptionsRegisterComponent},
   
-  //Sections
-  {path:"home",component: HomeComponent},
-  {path:"customers",component: CustomersComponent},
-  {path:"sales",component: SalesComponent},
-  {path:"activities",component: ActivitiesComponent},
-  
-  //Inside Sections
-  {path:"inside-sale",component: InsideSaleComponent},
+  //Sections Project Manager
+  {path:"HomeProjectManager/:id",component: HomeComponent},
+  {path:"HomeProjectManager/:id/Customers",component: CustomersComponent},
+  {path:"HomeProjectManager/:id/Sales",component: SalesComponent},
+  {path:"HomeProjectManager/:id/Activities",component: ActivitiesComponent},
+  {path:"HomeProjectManager/:id/Sales/:saleid/inside-sale",component: InsideSaleComponent},
+
+  //Sections Sales Manager
+  {path:"HomeSalesManager/:id",component: HomeComponent},
+  {path:"HomeSalesManager/:id/Customers",component: CustomersComponent},
+  {path:"HomeSalesManager/:id/Sales",component: SalesComponent},
+  {path:"HomeSalesManager/:id/Activities",component: ActivitiesComponent},
+  {path:"HomeSalesManager/:id/Sales/:saleid/inside-sale",component: InsideSaleComponent},
+
+  //Sections Engineering Chief
+  {path:"HomeEngineeringChief/:id",component: HomeComponent},
+  {path:"HomeEngineeringChief/:id/Customers",component: CustomersComponent},
+  {path:"HomeEngineeringChief/:id/Sales",component: SalesComponent},
+  {path:"HomeEngineeringChief/:id/Activities",component: ActivitiesComponent},
+  {path:"HomeEngineeringChief/:id/Sales/:saleid/inside-sale",component: InsideSaleComponent},
 
 ];
 

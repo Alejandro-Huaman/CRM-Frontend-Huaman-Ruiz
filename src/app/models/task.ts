@@ -1,3 +1,5 @@
+import { Sale } from "./sale";
+
 export interface Task{
 
     id:number;
@@ -7,4 +9,6 @@ export interface Task{
     date:string;
 
     description:string;
+
+    sale:Sale
 }

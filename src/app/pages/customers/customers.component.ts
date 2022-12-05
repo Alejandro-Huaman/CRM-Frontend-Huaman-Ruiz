@@ -31,6 +31,7 @@ export class CustomersComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result)
       this.dataSource.data.push({...result})
+      this.dataSource.paginator = this.paginator;
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
       this.GetAllCustomers() 
     })        

@@ -46,6 +46,13 @@ export class UserService {
         catchError(this.handleError));
   }
 
+  getbyUsername(username:any): Observable<User> {
+    return this.http.get<User>(`${this.basePath}/name/${username}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
 
   update(id: any, item: any): Observable<User> {
     return this.http.put<User>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)

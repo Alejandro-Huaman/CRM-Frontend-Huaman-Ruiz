@@ -4,16 +4,16 @@
     <mat-card class="w-1/4 ml-auto mr-auto">
         <mat-card-title>Bienvenido!</mat-card-title>
         <mat-card-content>
-            <form class="text-left">
+            <form class="text-left" [formGroup]="loginform">
                 <mat-form-field appearance="outline" class="w-full">
                   <mat-label>Usuario</mat-label>
-                  <input matInput placeholder="Ingrese usuario" required>
+                  <input matInput formControlName="username" placeholder="Ingrese usuario" required>
                   <mat-error>Complete este campo es requerido!</mat-error>
                 </mat-form-field>
                 <br>
                 <mat-form-field appearance="outline" class="w-full">
                   <mat-label>Contraseña</mat-label>
-                  <input matInput placeholder="Ingrese contraseña" [type]="hide ? 'password' : 'text'" required>
+                  <input matInput formControlName="password" placeholder="Ingrese contraseña" [type]="hide ? 'password' : 'text'" required>
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
@@ -23,7 +23,7 @@
                 <p class="text-blue-600 text-right">¿Olvidaste tu contraseña? <a href="ww.google.com">Click Aquí</a></p>
                 <br>
                 <div class="text-center">
-                  <button class = "w-full bg-blue-400 text-white" mat-raised-button routerLink="/home">Ingresar</button>
+                  <button class = "w-full bg-blue-400 text-white" mat-raised-button (click)="Login()" [disabled]="loginform.invalid">Ingresar</button>
                 </div>
                 <br>
                 <p class="text-black text-center">¿Si no tienes una cuenta? 

@@ -15,4 +15,6 @@ export interface Sale{
 
     user:User;
 
+    statusname:string;
+
 }

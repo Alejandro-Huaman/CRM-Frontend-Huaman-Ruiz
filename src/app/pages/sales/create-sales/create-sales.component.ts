@@ -15,6 +15,7 @@ export class CreateSalesComponent implements OnInit {
   newsalecreated!:Sale
   customername!:string
   customers!:any[]
+  datenow = new Date()
   constructor(private saleService:SaleService, private formBuilder: FormBuilder,private customerService:CustomerService) { 
     this.saleobj = {} as Sale
     this.newsalecreated = {} as Sale

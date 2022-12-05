@@ -1,17 +1,17 @@
 <header>
   <mat-toolbar class="bg-blue-300">
-      <a routerLink="/home">
+      <a (click)="GoToHome()" style="cursor: pointer;">
         <img src="assets/images/Logo.png">
       </a>
       <span>CRM</span>
       <div class="flex-auto"></div>
-      <a routerLink="/home">Inicio</a>
+      <a (click)="GoToHome()" style="cursor: pointer;">Inicio</a>
       <div class="pr-10"></div>
-      <a routerLink="/customers">Clientes</a>
+      <a (click)="GoToCustomers()" style="cursor: pointer;">Clientes</a>
       <div class="pr-10"></div>
-      <a routerLink="/sales">Cotizaciones</a>
+      <a (click)="GoToSales()" style="cursor: pointer;">Cotizaciones</a>
       <div class="pr-10"></div>
-      <a routerLink="/activities">Actividades</a>
+      <a (click)="GoToActivities()" style="cursor: pointer;">Actividades</a>
       <div class="pr-10"></div>
       <img src="assets/images/perfil.png" class="h-14">
       <div class="pr-2"></div>

@@ -8,7 +8,7 @@
     <div class="pr-5"></div>
     <div>
       <h1>Venta</h1>
-      <h2>Venta de auto</h2>
+      <h2>{{objectsale.name}}</h2>
     </div>
   </div>
   <br>
@@ -16,22 +16,22 @@
   <div class="inline-flex">
     <div>
       <h1>Nombre del cliente:</h1>
-      <h2>Cliente 1</h2>
+      <h2>{{objectsale.customer.name}}</h2>
     </div>
     <div class="pr-20"></div>
     <div>
       <h1>Fechas de cierre:</h1>
-      <h2>10/11/2022</h2>
+      <h2>{{objectsale.finishdate}}</h2>
     </div>
     <div class="pr-20"></div>
     <div>
       <h1>Importe:</h1>
-      <h2>123,000 $</h2>
+      <h2>{{objectsale.amount}}</h2>
     </div>
     <div class="pr-20"></div>
     <div>
       <h1>Propietario de la venta:</h1>
-      <h2>Alejandro Sebastián Huamán Ruiz</h2>
+      <h2>{{objectsale.user.name}} {{objectsale.user.lastname}}</h2>
     </div>
   </div>
 </mat-card>
@@ -43,17 +43,17 @@
         <mat-card class="font-normal">
           <h1 class="text-left font-bold">Detalles de la venta</h1>
           <br>
-          <h2 class="text-left">Nombre de venta: Venta de auto</h2>
+          <h2 class="text-left">Nombre de venta: {{objectsale.name}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Propietario: Alejandro Sebastián Huamán Ruiz</h2>
+          <h2 class="text-left">Propietario: {{objectsale.user.name}} {{objectsale.user.lastname}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Cliente: Cliente 1</h2>
+          <h2 class="text-left">Cliente: {{objectsale.customer.name}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Fecha a finalizar: 10/11/2022</h2>
+          <h2 class="text-left">Fecha a finalizar: {{objectsale.finishdate}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Importe de la venta: 123,000 $</h2>
+          <h2 class="text-left">Importe de la venta: {{objectsale.amount}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Estado de la venta: Calificado</h2>
+          <h2 class="text-left">Estado de la venta: {{objectsale.statusname}}</h2>
         </mat-card>
         <div class="pb-5"></div>
         <mat-card class="text-left font-normal">
@@ -62,19 +62,13 @@
           <div class="inline-flex">
             <mat-icon>business</mat-icon>
             <div class="pr-5"></div>
-            <h1>Organizacion de cliente</h1>
+            <h1>{{objectsale.customer.businessname}}</h1>
           </div>
         </mat-card>
         <div class="pb-5"></div>
         <mat-card class="text-left font-normal">
           <h1 class="font-bold">Resumen General</h1>
           <br>
-          <div class="inline-flex">
-            <h1>Antiguedad del negocio perteneciente al cliente:</h1>
-            <div class="pr-5"></div>
-            <h1>2 años</h1>
-          </div>
-          <div class="pb-2"></div>
           <div class="inline-flex">
             <h1>Ultima creación de una actividad:</h1>
             <div class="pr-5"></div>
