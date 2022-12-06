@@ -32,6 +32,8 @@ export class CreateCustomersComponent implements OnInit {
     console.log(this.customerobj)
     this.customerService.create(this.customerobj).subscribe((response:any)=>{
       this.newcustomercreated = response
+    },err=>{
+      alert("Nombre repetido por favor coloque otro nombre")
     })
   }
 

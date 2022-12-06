@@ -14,5 +14,5 @@ export interface Task{
 
     finalhour:string;
 
-    sale:Sale
+    sales:Sale
 }

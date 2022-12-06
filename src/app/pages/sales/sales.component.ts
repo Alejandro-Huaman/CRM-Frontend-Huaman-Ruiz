@@ -15,6 +15,8 @@ export class SalesComponent implements OnInit {
   dataSource!:MatTableDataSource<any>;
   whois!:string
   idurl!:number
+  months:string[] = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+  lotstatus:string[] = ["Iniciada","Propuesta Inicial","Presupuesto","Negociación","Cerrada"] 
   constructor(public dialog:MatDialog,private saleService:SaleService,private cd:Router,private ActivateRoute:ActivatedRoute) { 
     this.dataSource = new MatTableDataSource<any>();
   }
@@ -31,7 +33,9 @@ export class SalesComponent implements OnInit {
   }
 
   OpenCreateSales(){
-    const dialogsale = this.dialog.open(CreateSalesComponent)
+    const dialogsale = this.dialog.open(CreateSalesComponent,{
+      data: this.idurl       
+    })
 
     dialogsale.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

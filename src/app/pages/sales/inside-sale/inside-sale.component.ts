@@ -30,6 +30,7 @@ export class InsideSaleComponent implements OnInit {
   objemailtask!:Task
   objappointtask!:Task
   objtask!:Task
+  salestatus!:string
   dataSource!:MatTableDataSource<any>;
   constructor(private ActivateRoute:ActivatedRoute, private saleService:SaleService, private formBuilder: FormBuilder, private taskService:TaskService, public dialog:MatDialog) { 
     this.objectsale = {} as Sale
@@ -81,6 +82,18 @@ export class InsideSaleComponent implements OnInit {
       this.salesdate = this.pipedate.transform(this.objectsale.finishdate, 'dd/MM/yyyy');
       console.log(typeof this.salesdate)
       console.log(this.salesdate)
+
+      if(this.objectsale.statusname == "Qualification"){
+        this.salestatus = "Iniciada" 
+      }else if(this.objectsale.statusname == "Need_Analysis"){
+        this.salestatus = "Propuesta Inicial"
+      }else if(this.objectsale.statusname == "Proposal"){
+        this.salestatus = "Presupuesto"
+      }else if(this.objectsale.statusname == "Negotiation"){
+        this.salestatus = "Negociación"
+      }else if(this.objectsale.statusname == "Closed_Won"){
+        this.salestatus = "Cerrada"
+      }
 
       console.log(this.objectsale)
     });
