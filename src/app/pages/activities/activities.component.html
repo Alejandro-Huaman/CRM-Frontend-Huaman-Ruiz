@@ -5,7 +5,7 @@
     <h1 class="text-center">Historial de actividades!</h1>
     <div class="pb-10"></div>
     <div class="border ml-5 mr-5">
-      <table mat-table [dataSource]="dataSource" class="w-full">
+      <table mat-table [dataSource]="dataSource.data" class="w-full">
     
         <ng-container matColumnDef="title">
           <th mat-header-cell *matHeaderCellDef> Titulo</th>
@@ -24,12 +24,12 @@
     
         <ng-container matColumnDef="sale">
           <th mat-header-cell *matHeaderCellDef> Venta </th>
-          <td mat-cell *matCellDef="let element"> {{element.sale.name}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
         </ng-container>
 
         <ng-container matColumnDef="customer">
           <th mat-header-cell *matHeaderCellDef> Cliente </th>
-          <td mat-cell *matCellDef="let element"> {{element.sale.customer.name}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
         </ng-container>
     
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

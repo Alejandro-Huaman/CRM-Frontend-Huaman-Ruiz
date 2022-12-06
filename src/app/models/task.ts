@@ -6,9 +6,13 @@ export interface Task{
 
     title:string;
 
-    date:string;
+    date:Date;
 
     description:string;
+
+    inithour:string;
+
+    finalhour:string;
 
     sale:Sale
 }

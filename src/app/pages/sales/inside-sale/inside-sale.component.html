@@ -21,7 +21,7 @@
     <div class="pr-20"></div>
     <div>
       <h1>Fechas de cierre:</h1>
-      <h2>{{objectsale.finishdate}}</h2>
+      <h2>{{salesdate}}</h2>
     </div>
     <div class="pr-20"></div>
     <div>
@@ -49,7 +49,7 @@
           <div class="pb-2"></div>
           <h2 class="text-left">Cliente: {{objectsale.customer.name}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Fecha a finalizar: {{objectsale.finishdate}}</h2>
+          <h2 class="text-left">Fecha a finalizar: {{salesdate}}</h2>
           <div class="pb-2"></div>
           <h2 class="text-left">Importe de la venta: {{objectsale.amount}}</h2>
           <div class="pb-2"></div>
@@ -99,11 +99,11 @@
 
           <div *ngIf="usergroup.value == 'email'">
             <div class="pb-5"></div>
-            <form class="form text-left">
+            <form class="form text-left" [formGroup]="emailform">
               <h1>Descripción:</h1>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Descripcion</mat-label>
-                <textarea matInput placeholder="Ingrese la descripcion" maxlength="100"></textarea>
+                <textarea matInput formControlName="description" placeholder="Ingrese la descripcion" maxlength="100" [(ngModel)]="objemailtask.description"></textarea>
               </mat-form-field>
               <br>
               <div class="inline-flex">
@@ -111,27 +111,27 @@
                   <h1>Titulo:</h1>
                   <mat-form-field appearance="outline" class="w-full">
                     <mat-label>Titulo</mat-label>
-                    <input matInput placeholder="Ingrese el titulo" required maxlength="30">
-                    <mat-error>Complete este campo es requerido!</mat-error>
+                    <input matInput formControlName="title" placeholder="Ingrese el titulo" required maxlength="30" [(ngModel)]="objemailtask.title">
+                    <mat-error *ngIf="emailform.controls['title'].dirty && emailform.hasError('required') || emailform.controls['title'].invalid">Complete este campo es requerido!</mat-error>
                   </mat-form-field>
                 </div>
                 <div class="pr-5"></div>
                 <div>
                   <h1>Asignado al cliente:</h1>
-                  <h2 class="pt-5 font-normal">Cliente 1</h2>
+                  <h2 class="pt-5 font-normal">{{objectsale.customer.name}}</h2>
                 </div>
                 <div class="pr-10"></div>
                 <div>
                   <h1>Asignado al correo:</h1>
-                  <h2 class="pt-5 font-normal">cliente1@gmail.com</h2>
+                  <h2 class="pt-5 font-normal">{{objectsale.customer.email}}</h2>
                 </div>
               </div>
             </form>
             <div class="text-right">
               <div class="inline-flex">
-                <button mat-raised-button>Limpiar</button>
+                <button mat-raised-button (click)="ClearEmailInputs()">Limpiar</button>
                 <div class="pr-5"></div>
-                <button mat-raised-button>Enviar</button>
+                <button mat-raised-button (click)="CreateEmail()" [disabled]="emailform.invalid">Enviar</button>
               </div>
             </div>
             <div class="pb-2"></div>
@@ -139,11 +139,11 @@
 
           <div *ngIf="usergroup.value == 'appointment'">
             <div class="pb-5"></div>
-            <form class="form text-left">
+            <form class="form text-left" [formGroup]="appointmentform">
               <h1>Descripción:</h1>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Descripcion</mat-label>
-                <textarea matInput placeholder="Ingrese la descripcion" maxlength="100"></textarea>
+                <textarea matInput formControlName="appointdescription" placeholder="Ingrese la descripcion" maxlength="100" [(ngModel)]="objappointtask.description"></textarea>
               </mat-form-field>
               <br>
               <div class="inline-flex">
@@ -151,14 +151,14 @@
                   <h1>Titulo:</h1>
                   <mat-form-field appearance="outline" class="w-full">
                     <mat-label>Titulo</mat-label>
-                    <input matInput placeholder="Ingrese el titulo" required maxlength="30">
+                    <input matInput formControlName="appointtitle" placeholder="Ingrese el titulo" required maxlength="30" [(ngModel)]="objappointtask.title">
                     <mat-error>Complete este campo es requerido!</mat-error>
                   </mat-form-field>
 
                   <h1>Fecha:</h1>
                   <mat-form-field appearance="outline" class="w-full">
                     <mat-label>Fecha de reunión</mat-label>
-                    <input matInput [matDatepicker]="picker" placeholder="Ingrese la fecha de reunión" required>
+                    <input matInput formControlName="appointdate" [matDatepicker]="picker" [min]="datenow" placeholder="Ingrese la fecha de reunión" required [(ngModel)]="objappointtask.date">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     <mat-error>Complete este campo es requerido!</mat-error>
@@ -169,7 +169,7 @@
                   <h1>Hora Inicial:</h1>
                   <mat-form-field appearance="outline" class="w-full">
                     <mat-label>Hora inicial de reunión</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="appointinithour" [(ngModel)]="objappointtask.inithour">
                       <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
                     </mat-select>
                     <mat-error>Complete este campo es requerido!</mat-error>
@@ -178,7 +178,7 @@
                   <h1>Hora Final:</h1>
                   <mat-form-field appearance="outline" class="w-full">
                     <mat-label>Hora final de reunión</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="appointfinalhour" [(ngModel)]="objappointtask.finalhour">
                       <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
                     </mat-select>
                     <mat-error>Complete este campo es requerido!</mat-error>
@@ -187,15 +187,15 @@
                 <div class="pr-5"></div>
                 <div>
                   <h1>Asignado al cliente:</h1>
-                  <h2 class="pt-5 font-normal">Cliente 1</h2>
+                  <h2 class="pt-5 font-normal">{{objectsale.customer.name}}</h2>
                 </div>
               </div>
             </form>
             <div class="text-right">
               <div class="inline-flex">
-                <button mat-raised-button>Limpiar</button>
+                <button mat-raised-button (click)="ClearAppointForm()">Limpiar</button>
                 <div class="pr-5"></div>
-                <button mat-raised-button>Agregar</button>
+                <button mat-raised-button (click)="CreateAppoint()" [disabled]="appointmentform.invalid">Agregar</button>
               </div>
             </div>
             <div class="pb-2"></div>
@@ -203,11 +203,11 @@
 
           <div *ngIf="usergroup.value == 'task'">
             <div class="pb-5"></div>
-            <form class="form text-left">
+            <form class="form text-left" [formGroup]="taskform">
               <h1>Descripción:</h1>
               <mat-form-field appearance="outline" class="w-full">
                 <mat-label>Descripcion</mat-label>
-                <textarea matInput placeholder="Ingrese la descripcion" maxlength="100"></textarea>
+                <textarea matInput formControlName="taskdescription" placeholder="Ingrese la descripcion" maxlength="100" [(ngModel)]="objtask.description"></textarea>
               </mat-form-field>
               <br>
               <div class="inline-flex">
@@ -215,7 +215,7 @@
                   <h1>Titulo:</h1>
                   <mat-form-field appearance="outline" class="w-full">
                     <mat-label>Titulo</mat-label>
-                    <input matInput placeholder="Ingrese el titulo" required maxlength="30">
+                    <input matInput formControlName="tasktitle" placeholder="Ingrese el titulo" required maxlength="30" [(ngModel)]="objtask.title">
                     <mat-error>Complete este campo es requerido!</mat-error>
                   </mat-form-field>
                 </div>
@@ -224,7 +224,7 @@
                   <h1>Fecha:</h1>
                   <mat-form-field appearance="outline" class="w-full">
                     <mat-label>Fecha de reunión</mat-label>
-                    <input matInput [matDatepicker]="picker2" placeholder="Ingrese la fecha de la tarea" required>
+                    <input matInput formControlName="taskdate" [matDatepicker]="picker2" [min]="datenow" placeholder="Ingrese la fecha de la tarea" required [(ngModel)]="objtask.date">
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
                     <mat-error>Complete este campo es requerido!</mat-error>
@@ -233,15 +233,15 @@
                 <div class="pr-5"></div>
                 <div>
                   <h1>Asignado al cliente:</h1>
-                  <h2 class="pt-5 font-normal">Cliente 1</h2>
+                  <h2 class="pt-5 font-normal">{{objectsale.customer.name}}</h2>
                 </div>
               </div>
             </form>
             <div class="text-right">
               <div class="inline-flex">
-                <button mat-raised-button>Limpiar</button>
+                <button mat-raised-button (click)="ClearTaskForm()">Limpiar</button>
                 <div class="pr-5"></div>
-                <button mat-raised-button>Agregar</button>
+                <button mat-raised-button (click)="CreateTask()" [disabled]="taskform.invalid">Agregar</button>
               </div>
             </div>
             <div class="pb-2"></div>

@@ -20,6 +20,7 @@ import { ActivitiesComponent } from './pages/activities/activities.component';
 import { InsideSaleComponent } from './pages/sales/inside-sale/inside-sale.component';
 import { SwiperModule } from 'swiper/angular';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateTaskDialogComponent } from './pages/dialog-answer-messages/create-task-dialog/create-task-dialog.component';
 
 @NgModule({
   declarations: [	
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     CreateCustomersComponent,
     CreateSalesComponent,
     ActivitiesComponent,
-    InsideSaleComponent
+    InsideSaleComponent,
+    CreateTaskDialogComponent
    ],
   imports: [
     BrowserModule,
