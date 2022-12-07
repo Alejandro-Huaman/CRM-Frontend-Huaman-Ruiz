@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,18 +17,27 @@ export class SalesComponent implements OnInit {
   whois!:string
   idurl!:number
   months:string[] = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
-  lotstatus:string[] = ["Iniciada","Propuesta Inicial","Presupuesto","Negociación","Cerrada"] 
-  constructor(public dialog:MatDialog,private saleService:SaleService,private cd:Router,private ActivateRoute:ActivatedRoute) { 
+  lotstatus:string[] = ["Iniciada","Propuesta Inicial","Presupuesto","Negociación","Cerrada"]
+  statusform!:FormGroup
+
+  constructor(public dialog:MatDialog,private saleService:SaleService,private cd:Router,private ActivateRoute:ActivatedRoute,private formBuilder: FormBuilder) { 
     this.dataSource = new MatTableDataSource<any>();
   }
 
   ngOnInit() {
+    this.statusform = this.formBuilder.group({
+      status:[''],
+    })
+
+    this.statusform.controls['status'].setValue("Hola");
+
     let pod=parseInt(this.ActivateRoute.snapshot.paramMap.get('id')!);
     this.whois = (this.ActivateRoute.snapshot.url[0].path)
     this.idurl= pod;
 
     console.log(this.whois)
     console.log(this.idurl)
+
 
     this.GetAllSales()
   }

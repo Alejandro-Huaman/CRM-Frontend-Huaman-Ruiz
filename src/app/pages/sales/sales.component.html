@@ -66,12 +66,14 @@
                 <h1>{{item.customer.name}}</h1>
               </mat-card-content>
             </button>
-            <mat-form-field appearance="outline" class="w-36 h-10">
+            <form [formGroup]="statusform">
+              <mat-form-field appearance="outline" class="w-36 h-10">
                 <mat-label>Estado</mat-label>
-                <mat-select>
+                <mat-select formControlName="status">
                   <mat-option *ngFor="let onestatus of lotstatus" value="onestatus">{{onestatus}}</mat-option>
                 </mat-select>
-            </mat-form-field>
+              </mat-form-field>
+            </form>
             <div class="pb-5"></div>
           </mat-card>
         <div class="pb-5"></div>
