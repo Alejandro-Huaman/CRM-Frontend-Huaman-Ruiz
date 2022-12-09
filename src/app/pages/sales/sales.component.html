@@ -54,10 +54,10 @@
           <h1 class="text-2xl">Cerrada</h1>
         </mat-card>
       </th>
-    </tr>
-    <div class="pb-5"></div>
-    <tr *ngFor="let item of dataSource.data">
-      <th class="border-x-4">
+    </tr>  
+    <th class="border-x-4 w-96">
+      <div class="pb-5"></div>
+        <tr *ngFor="let item of dataSource2.data">
           <mat-card class="w-4/5 ml-auto mr-auto">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
               <mat-card-title>{{item.name}}</mat-card-title>
@@ -69,16 +69,108 @@
             <form [formGroup]="statusform">
               <mat-form-field appearance="outline" class="w-36 h-10">
                 <mat-label>Estado</mat-label>
-                <mat-select formControlName="status">
-                  <mat-option *ngFor="let onestatus of lotstatus" value="onestatus">{{onestatus}}</mat-option>
+                <mat-select formControlName="status" (selectionChange)="Changestatus($event.value,item.id)">
+                  <mat-option *ngFor="let onestatus of lotstatus" [value]="onestatus">{{onestatus}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </form>
             <div class="pb-5"></div>
           </mat-card>
         <div class="pb-5"></div>
-      </th>
-    </tr>
+        </tr>
+    </th>
+    <th class="border-x-4 w-64">
+        <tr *ngFor="let item of dataSource3.data">
+        <mat-card class="w-4/5 ml-auto mr-auto">
+          <button class="w-full" (click)="GoToInsideSale(item.id)">
+            <mat-card-title>{{item.name}}</mat-card-title>
+            <mat-card-content>
+              <h1>{{item.amount}}</h1>
+              <h1>{{item.customer.name}}</h1>
+            </mat-card-content>
+          </button>
+          <form [formGroup]="statusform">
+            <mat-form-field appearance="outline" class="w-36 h-10">
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="status" (selectionChange)="Changestatus($event.value,item.id)">
+                <mat-option *ngFor="let onestatus of lotstatus" [value]="onestatus">{{onestatus}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+          <div class="pb-5"></div>
+        </mat-card>
+        <div class="pb-5"></div>
+        </tr>
+    </th>
+    <th class="border-x-4 w-64">
+      <tr *ngFor="let item of dataSource4.data">
+      <mat-card class="w-4/5 ml-auto mr-auto">
+        <button class="w-full" (click)="GoToInsideSale(item.id)">
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <mat-card-content>
+            <h1>{{item.amount}}</h1>
+            <h1>{{item.customer.name}}</h1>
+          </mat-card-content>
+        </button>
+        <form [formGroup]="statusform">
+          <mat-form-field appearance="outline" class="w-36 h-10">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="status" (selectionChange)="Changestatus($event.value,item.id)">
+              <mat-option *ngFor="let onestatus of lotstatus" [value]="onestatus">{{onestatus}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <div class="pb-5"></div>
+      </mat-card>
+      <div class="pb-5"></div>
+      </tr>
+    </th>
+    <th class="border-x-4 w-64">
+      <tr *ngFor="let item of dataSource5.data">
+      <mat-card class="w-4/5 ml-auto mr-auto">
+        <button class="w-full" (click)="GoToInsideSale(item.id)">
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <mat-card-content>
+            <h1>{{item.amount}}</h1>
+            <h1>{{item.customer.name}}</h1>
+          </mat-card-content>
+        </button>
+        <form [formGroup]="statusform">
+          <mat-form-field appearance="outline" class="w-36 h-10">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="status" (selectionChange)="Changestatus($event.value,item.id)">
+              <mat-option *ngFor="let onestatus of lotstatus" [value]="onestatus">{{onestatus}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <div class="pb-5"></div>
+      </mat-card>
+      <div class="pb-5"></div>
+      </tr>
+    </th>
+    <th class="border-x-4 w-96">
+      <tr *ngFor="let item of dataSource6.data">
+      <mat-card class="w-4/5 ml-auto mr-auto">
+        <button class="w-full" (click)="GoToInsideSale(item.id)">
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <mat-card-content>
+            <h1>{{item.amount}}</h1>
+            <h1>{{item.customer.name}}</h1>
+          </mat-card-content>
+        </button>
+        <form [formGroup]="statusform">
+          <mat-form-field appearance="outline" class="w-36 h-10">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="status" (selectionChange)="Changestatus($event.value,item.id)">
+              <mat-option *ngFor="let onestatus of lotstatus" [value]="onestatus">{{onestatus}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <div class="pb-5"></div>
+      </mat-card>
+      <div class="pb-5"></div>
+      </tr>
+    </th>
   </table>
   <div class="pb-5"></div>
 </mat-card>
