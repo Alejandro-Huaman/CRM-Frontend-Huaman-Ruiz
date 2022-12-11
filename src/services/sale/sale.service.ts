@@ -12,6 +12,7 @@ export class SaleService {
   basePath = 'http://localhost:8080/api/v1/sales';
   basePath2 = 'http://localhost:8080/api/v1/status';
   basePath3 = 'http://localhost:8080/api/v1/user';
+  basePath4 = 'http://localhost:8080/api/v1/numbersales';
   
   
   httpOptions = {
@@ -86,6 +87,34 @@ export class SaleService {
 
   create(userId:number,customerId:number,item: any): Observable<Sale> {
     return this.http.post<Sale>(`${this.basePath3}/${userId}/customer/${customerId}/sales`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
+  getSaleByMonth(month:any): Observable<Sale> {
+    return this.http.get<Sale>(`${this.basePath}/month/${month}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+  
+  getSaleByYear(year:any): Observable<Sale> {
+    return this.http.get<Sale>(`${this.basePath}/year/${year}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
+  getSaleByMonthAndYear(month:any,year:any): Observable<Sale> {
+    return this.http.get<Sale>(`${this.basePath}/month/${month}/year/${year}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
+  getNumberofSaleByCustomerId(customerid:number){
+    return this.http.get<number>(`${this.basePath4}/customer/${customerid}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
