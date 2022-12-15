@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomerService } from 'src/services/customer/customer.service';
+import { SaleService } from 'src/services/sale/sale.service';
 import { CreateCustomersComponent } from './create-customers/create-customers.component';
 
 @Component({
@@ -11,12 +12,14 @@ import { CreateCustomersComponent } from './create-customers/create-customers.co
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  displayedColumns: string[] = ['Razon Social', 'Ruc', 'Ventas del mes', 'Ventas del año'];
+  displayedColumns: string[] = ['nombre','Razon Social', 'Ruc', 'Ventas'];
   dataSource!:MatTableDataSource<any>;
+  numbersale!:any
+  cont:number = 0
   
   @ViewChild(MatPaginator, {static: true}) paginator!:MatPaginator 
   
-  constructor(public dialog:MatDialog, private customerService: CustomerService) { 
+  constructor(public dialog:MatDialog, private customerService: CustomerService,private saleService:SaleService) { 
     this.dataSource = new MatTableDataSource<any>();
   }
 
@@ -41,8 +44,18 @@ export class CustomersComponent implements OnInit {
     this.customerService.getAll().subscribe((response:any)=>{
       this.dataSource.data = response.content
       this.dataSource.paginator = this.paginator;
+
+      for(let onecustomer of this.dataSource.data){
+        
+        this.saleService.getNumberofSaleByCustomerId(onecustomer.id).subscribe((response:any) =>{
+          console.log(response)
+          onecustomer.numbersales = response
+        });
+        
+      }
+      
       console.log(this.dataSource.data)
     })
-  }
+  } 
 
 }

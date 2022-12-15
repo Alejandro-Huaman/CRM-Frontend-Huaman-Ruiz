@@ -18,6 +18,11 @@
 
   <div class="border ml-5 mr-5">
     <table mat-table [dataSource]="dataSource.data" class="w-full">
+
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
   
       <ng-container matColumnDef="Razon Social">
         <th mat-header-cell *matHeaderCellDef>Razon social</th>
@@ -29,14 +34,9 @@
         <td mat-cell *matCellDef="let element"> {{element.ruc}} </td>
       </ng-container>
   
-      <ng-container matColumnDef="Ventas del mes">
-        <th mat-header-cell *matHeaderCellDef>Ventas del mes</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="Ventas del año">
-        <th mat-header-cell *matHeaderCellDef> Ventas del año</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <ng-container matColumnDef="Ventas">
+        <th mat-header-cell *matHeaderCellDef># Ventas</th>
+        <td mat-cell *matCellDef="let element"> {{element.numbersales}} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

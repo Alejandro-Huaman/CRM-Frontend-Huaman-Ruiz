@@ -12,4 +12,6 @@ export interface Customer{
 
     email:string;
 
+    numbersales:number;
+
 }
