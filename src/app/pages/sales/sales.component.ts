@@ -27,11 +27,11 @@ export class SalesComponent implements OnInit {
   dataSource4!:MatTableDataSource<any>;
   dataSource5!:MatTableDataSource<any>;
   dataSource6!:MatTableDataSource<any>;
-  filterdataSource2!:MatTableDataSource<any>;
-  filterdataSource3!:MatTableDataSource<any>;
-  filterdataSource4!:MatTableDataSource<any>;
-  filterdataSource5!:MatTableDataSource<any>;
-  filterdataSource6!:MatTableDataSource<any>;
+  filterdataSource2:any[] = []
+  filterdataSource3:any[] = []
+  filterdataSource4:any[] = []
+  filterdataSource5:any[] = []
+  filterdataSource6:any[] = []
   month!:any
   year!:any
   pipedate:DatePipe = new DatePipe("en-US")
@@ -48,11 +48,6 @@ export class SalesComponent implements OnInit {
     this.dataSource4 = new MatTableDataSource<any>();
     this.dataSource5 = new MatTableDataSource<any>();
     this.dataSource6 = new MatTableDataSource<any>();
-    this.filterdataSource2 = new MatTableDataSource<any>();
-    this.filterdataSource3 = new MatTableDataSource<any>();
-    this.filterdataSource4 = new MatTableDataSource<any>();
-    this.filterdataSource5 = new MatTableDataSource<any>();
-    this.filterdataSource6 = new MatTableDataSource<any>();
     this.newstatus = {} as Selectedstatus
   }
 
@@ -513,74 +508,101 @@ export class SalesComponent implements OnInit {
       }
       if(this.month == "Noviembre"){
         this.saleService.getSaleByMonthAndYear(this.months.indexOf('Noviembre')+1,this.year).subscribe((response:any)=>{
+            
+            this.filterdataSource2 = []
+            this.filterdataSource3 = []
+            this.filterdataSource4 = []
+            this.filterdataSource5 = []
+            this.filterdataSource6 = []
+
             for(let oneobject of response.content){
 
                 if(oneobject.statusname == "Qualification"){
-                  this.dataSource2.data.push(oneobject)
+                  this.filterdataSource2.push(oneobject)
                 }
 
                 if(oneobject.statusname == "Need_Analysis"){
-                  this.dataSource3.data.push(oneobject)
+                  this.filterdataSource3.push(oneobject)
                 }
 
                 if(oneobject.statusname == "Proposal"){
-                  this.dataSource4.data.push(oneobject)
+                  this.filterdataSource4.push(oneobject)
                 }
 
                 if(oneobject.statusname == "Negotiation"){
-                  this.dataSource5.data.push(oneobject)
+                  this.filterdataSource5.push(oneobject)
                 }
 
                 if(oneobject.statusname == "Closed_Won"){
-                  this.dataSource6.data.push(oneobject)
+                  this.filterdataSource6.push(oneobject)
                 }
 
             }
+
+            console.log("Qualification datos")
+            this.dataSource2.data = this.filterdataSource2
+            console.log(this.dataSource2.data)
+            console.log("Need_Analysis datos")
+            this.dataSource3.data = this.filterdataSource3
+            console.log(this.dataSource3.data)
+            console.log("Proposal datos")
+            this.dataSource4.data = this.filterdataSource4
+            console.log(this.dataSource4.data)
+            console.log("Negotiation datos")
+            this.dataSource5.data = this.filterdataSource5
+            console.log(this.dataSource5.data)
+            console.log("Closed_Won datos")
+            this.dataSource6.data = this.filterdataSource6
+            console.log(this.dataSource6.data)
         }); 
       }
       if(this.month == "Diciembre"){
         this.saleService.getSaleByMonthAndYear(this.months.indexOf('Diciembre')+1,this.year).subscribe((response:any)=>{
-            console.log(this.dataSource3.data)
-            this.dataSource2.filter = ""            
-            this.dataSource3.filter = ""
-            console.log(this.dataSource3.data)
-            this.dataSource4.filter = ""
-            this.dataSource5.filter = ""
-            this.dataSource6.filter = ""
+            
+            this.filterdataSource2 = []
+            this.filterdataSource3 = []
+            this.filterdataSource4 = []
+            this.filterdataSource5 = []
+            this.filterdataSource6 = []
 
             for(let oneobject of response.content){
                 console.log(oneobject.statusname)
 
                 if(oneobject.statusname == "Qualification"){
-                  this.dataSource2.data.push(oneobject)
+                  this.filterdataSource2.push(oneobject)
                 }
                 
                 if(oneobject.statusname == "Need_Analysis"){
-                  this.dataSource3.data.push(oneobject)
+                  this.filterdataSource3.push(oneobject)
                 } 
                 
                 if(oneobject.statusname == "Proposal"){
-                  this.dataSource4.data.push(oneobject)
+                  this.filterdataSource4.push(oneobject)
                 } 
                 
                 if(oneobject.statusname == "Negotiation"){
-                  this.dataSource5.data.push(oneobject)
+                  this.filterdataSource5.push(oneobject)
                 }
                 
                 if(oneobject.statusname == "Closed_Won"){
-                  this.dataSource6.data.push(oneobject)
+                  this.filterdataSource6.push(oneobject)
                 }
 
             }
             console.log("Qualification datos")
+            this.dataSource2.data = this.filterdataSource2
             console.log(this.dataSource2.data)
             console.log("Need_Analysis datos")
+            this.dataSource3.data = this.filterdataSource3
             console.log(this.dataSource3.data)
             console.log("Proposal datos")
+            this.dataSource4.data = this.filterdataSource4
             console.log(this.dataSource4.data)
             console.log("Negotiation datos")
+            this.dataSource5.data = this.filterdataSource5
             console.log(this.dataSource5.data)
             console.log("Closed_Won datos")
+            this.dataSource6.data = this.filterdataSource6
             console.log(this.dataSource6.data)
         }); 
       }
