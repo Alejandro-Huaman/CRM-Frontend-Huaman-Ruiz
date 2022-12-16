@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenService } from 'src/services/token/token.service';
 
 @Component({
   selector: 'app-header-home',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HeaderHomeComponent implements OnInit {
   idurl!:number
   whois!:string
-  constructor(private route:ActivatedRoute, private cd:Router, private ActivateRoute:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute, private cd:Router, private ActivateRoute:ActivatedRoute, private tokenService:TokenService) { }
 
   ngOnInit() {
     let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
@@ -35,6 +36,10 @@ export class HeaderHomeComponent implements OnInit {
 
   GoToActivities(){
     this.cd.navigate([this.whois,this.idurl,'Activities'])
+  }
+
+  LogOut(){
+    this.tokenService.logOut()
   }
 
 }
