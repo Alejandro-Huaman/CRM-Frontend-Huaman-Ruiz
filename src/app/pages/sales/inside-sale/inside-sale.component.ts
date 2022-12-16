@@ -34,12 +34,14 @@ export class InsideSaleComponent implements OnInit {
   createsaledate!:any
   salestatus!:string
   dataSource!:MatTableDataSource<any>;
+  dataSource2!:MatTableDataSource<any>;
   constructor(private ActivateRoute:ActivatedRoute, private saleService:SaleService, private formBuilder: FormBuilder, private taskService:TaskService, public dialog:MatDialog) { 
     this.objectsale = {} as Sale
     this.objemailtask = {} as Task
     this.objappointtask = {} as Task
     this.objtask = {} as Task
     this.dataSource = new MatTableDataSource<any>();
+    this.dataSource2 = new MatTableDataSource<any>();
   }
 
   ngOnInit() {
@@ -76,7 +78,7 @@ export class InsideSaleComponent implements OnInit {
     }
 
     this.GetSaleById(this.saleidurl)
-    this.GetFinalTask()
+    this.GetFinalTask(this.saleidurl)
   }
 
   GetSaleById(saleid:number){
@@ -160,15 +162,15 @@ export class InsideSaleComponent implements OnInit {
     });
   }
 
-  GetFinalTask(){
-    this.taskService.getAll().subscribe((response:any) =>{
-      this.dataSource.data = response.content
+  GetFinalTask(saleid:number){
+    this.taskService.getbySaleId(saleid).subscribe((response:any) =>{
+      this.dataSource2.data = response.content
 
-      console.log(this.dataSource.data)
-      console.log(this.dataSource.data.length)
+      console.log(this.dataSource2.data)
+      console.log(this.dataSource2.data.length)
 
-      let finalposition = this.dataSource.data.length-1
-      this.taskService.getbyId(this.dataSource.data[finalposition].id).subscribe((response:any) =>{
+      let finalposition = this.dataSource2.data.length-1
+      this.taskService.getbyId(this.dataSource2.data[finalposition].id).subscribe((response:any) =>{
         console.log(response.created_at) 
         this.createtaskdate = this.pipedate.transform(response.created_at, 'dd/MM/yyyy');
 
