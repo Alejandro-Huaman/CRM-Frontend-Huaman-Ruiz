@@ -30,6 +30,8 @@ export class InsideSaleComponent implements OnInit {
   objemailtask!:Task
   objappointtask!:Task
   objtask!:Task
+  createtaskdate!:any
+  createsaledate!:any
   salestatus!:string
   dataSource!:MatTableDataSource<any>;
   constructor(private ActivateRoute:ActivatedRoute, private saleService:SaleService, private formBuilder: FormBuilder, private taskService:TaskService, public dialog:MatDialog) { 
@@ -74,6 +76,7 @@ export class InsideSaleComponent implements OnInit {
     }
 
     this.GetSaleById(this.saleidurl)
+    this.GetFinalTask()
   }
 
   GetSaleById(saleid:number){
@@ -96,6 +99,11 @@ export class InsideSaleComponent implements OnInit {
       }
 
       console.log(this.objectsale)
+
+      this.createsaledate = this.pipedate.transform(this.objectsale.created_at, 'dd/MM/yyyy');
+      
+      console.log("Fecha de creacion de venta")
+      console.log(this.createsaledate)
     });
   }
 
@@ -152,4 +160,23 @@ export class InsideSaleComponent implements OnInit {
     });
   }
 
+  GetFinalTask(){
+    this.taskService.getAll().subscribe((response:any) =>{
+      this.dataSource.data = response.content
+
+      console.log(this.dataSource.data)
+      console.log(this.dataSource.data.length)
+
+      let finalposition = this.dataSource.data.length-1
+      this.taskService.getbyId(this.dataSource.data[finalposition].id).subscribe((response:any) =>{
+        console.log(response.created_at) 
+        this.createtaskdate = this.pipedate.transform(response.created_at, 'dd/MM/yyyy');
+
+        console.log("Fecha de creacion de la ultima actividad")
+        console.log(this.createtaskdate)
+      });
+
+    });
+    
+  }
 }

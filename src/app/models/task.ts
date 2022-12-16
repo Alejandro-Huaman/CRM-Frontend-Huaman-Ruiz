@@ -15,4 +15,6 @@ export interface Task{
     finalhour:string;
 
     sales:Sale
+
+    created_at:Date
 }

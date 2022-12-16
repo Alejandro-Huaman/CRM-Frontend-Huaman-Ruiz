@@ -16,5 +16,6 @@ export interface Sale{
     user:User;
 
     statusname:string;
-
+    
+    created_at:Date;
 }
