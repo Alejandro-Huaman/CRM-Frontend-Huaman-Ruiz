@@ -154,11 +154,16 @@ export class SalesComponent implements OnInit {
       
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)
-        this.GetSalesQualification()  
-        this.GetSalesProposal()  
-        this.GetSalesNegotiation()  
-        this.GetSalesNeed_Analysis()  
-        this.GetSalesClosed_Won()  
+        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+          this.GetSalesQualification()  
+          this.GetSalesProposal()  
+          this.GetSalesNegotiation()  
+          this.GetSalesNeed_Analysis()  
+          this.GetSalesClosed_Won()
+        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          this.RealizarFiltro()
+        }
+          
       });
 
     }else if(value == "Propuesta Inicial"){
@@ -169,11 +174,15 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)
-        this.GetSalesQualification()  
-        this.GetSalesProposal()  
-        this.GetSalesNegotiation()  
-        this.GetSalesNeed_Analysis()  
-        this.GetSalesClosed_Won()  
+        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+          this.GetSalesQualification()  
+          this.GetSalesProposal()  
+          this.GetSalesNegotiation()  
+          this.GetSalesNeed_Analysis()  
+          this.GetSalesClosed_Won()
+        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          this.RealizarFiltro()
+        }
       });
 
     }else if(value == "Presupuesto"){
@@ -184,11 +193,15 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)
-        this.GetSalesQualification()  
-        this.GetSalesProposal()  
-        this.GetSalesNegotiation()  
-        this.GetSalesNeed_Analysis()  
-        this.GetSalesClosed_Won()  
+        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+          this.GetSalesQualification()  
+          this.GetSalesProposal()  
+          this.GetSalesNegotiation()  
+          this.GetSalesNeed_Analysis()  
+          this.GetSalesClosed_Won()
+        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          this.RealizarFiltro()
+        }  
       });
 
     }else if(value == "Negociación"){
@@ -199,11 +212,15 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname) 
-        this.GetSalesQualification()  
-        this.GetSalesProposal()  
-        this.GetSalesNegotiation()  
-        this.GetSalesNeed_Analysis()  
-        this.GetSalesClosed_Won()  
+        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+          this.GetSalesQualification()  
+          this.GetSalesProposal()  
+          this.GetSalesNegotiation()  
+          this.GetSalesNeed_Analysis()  
+          this.GetSalesClosed_Won()
+        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          this.RealizarFiltro()
+        }
       });
 
     }else if(value == "Cerrada"){
@@ -214,11 +231,15 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)  
-        this.GetSalesQualification()  
-        this.GetSalesProposal()  
-        this.GetSalesNegotiation()  
-        this.GetSalesNeed_Analysis()  
-        this.GetSalesClosed_Won()
+        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+          this.GetSalesQualification()  
+          this.GetSalesProposal()  
+          this.GetSalesNegotiation()  
+          this.GetSalesNeed_Analysis()  
+          this.GetSalesClosed_Won()
+        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          this.RealizarFiltro()
+        }
       });
 
     }
