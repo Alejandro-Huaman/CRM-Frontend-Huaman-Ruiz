@@ -9,6 +9,7 @@ import { TaskService } from 'src/services/task/task.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskDialogComponent } from '../../dialog-answer-messages/create-task-dialog/create-task-dialog.component';
+import { EmailService } from 'src/services/email/email.service';
 
 @Component({
   selector: 'app-inside-sale',
@@ -35,7 +36,9 @@ export class InsideSaleComponent implements OnInit {
   salestatus!:string
   dataSource!:MatTableDataSource<any>;
   dataSource2!:MatTableDataSource<any>;
-  constructor(private ActivateRoute:ActivatedRoute, private saleService:SaleService, private formBuilder: FormBuilder, private taskService:TaskService, public dialog:MatDialog) { 
+  constructor(private ActivateRoute:ActivatedRoute, private saleService:SaleService, private formBuilder: FormBuilder, private taskService:TaskService, public dialog:MatDialog,
+    private emailService:EmailService) {
+
     this.objectsale = {} as Sale
     this.objemailtask = {} as Task
     this.objappointtask = {} as Task
@@ -120,9 +123,16 @@ export class InsideSaleComponent implements OnInit {
     this.objemailtask.date = new Date()
     console.log(this.objemailtask)
     this.taskService.create(this.saleidurl,this.objemailtask).subscribe((response:any) =>{
+      console.log(response)
       this.dataSource.data.push({...response})
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
-      this.dialog.open(CreateTaskDialogComponent)
+      
+      this.emailService.sendEmail(this.objectsale.customer.email,response.title,response.description).subscribe((response:any)=>{
+        this.dialog.open(CreateTaskDialogComponent)
+      },err=>{
+        alert("No existe el correo electronico por favor editar el correo del cliente")
+      });
+
     });
   }
 
