@@ -5,7 +5,9 @@ import { TransitionCheckState } from '@angular/material/checkbox';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { SaleService } from 'src/services/sale/sale.service';
+import { UserService } from 'src/services/user/user.service';
 import { CreateSalesComponent } from './create-sales/create-sales.component';
 
 export interface Selectedstatus{
@@ -21,6 +23,7 @@ export class SalesComponent implements OnInit {
   list:number[] = [1,2,3,4,5]
   datanull:any[] = []
   yearmonthform!:FormGroup
+  typeusersaleform!:FormGroup
   dataSource!:MatTableDataSource<any>;
   dataSource2!:MatTableDataSource<any>;
   dataSource3!:MatTableDataSource<any>;
@@ -34,14 +37,16 @@ export class SalesComponent implements OnInit {
   filterdataSource6:any[] = []
   month!:any
   year!:any
+  userurlobject!:User
   pipedate:DatePipe = new DatePipe("en-US")
   whois!:string
   idurl!:number
+  users:string[] = []
   months:string[] = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
   lotstatus:string[] = ["Propuesta Inicial","Evaluación tecnica","Evaluación comercial","Cerrada (OC)","Perdida - Desestimada"]
   statusform!:FormGroup
   newstatus!:Selectedstatus
-  constructor(public dialog:MatDialog,private saleService:SaleService,private cd:Router,private ActivateRoute:ActivatedRoute,private formBuilder: FormBuilder) { 
+  constructor(public dialog:MatDialog,private saleService:SaleService,private cd:Router,private ActivateRoute:ActivatedRoute,private formBuilder: FormBuilder,private userService:UserService) { 
     this.dataSource = new MatTableDataSource<any>();
     this.dataSource2 = new MatTableDataSource<any>();
     this.dataSource3 = new MatTableDataSource<any>();
@@ -49,6 +54,7 @@ export class SalesComponent implements OnInit {
     this.dataSource5 = new MatTableDataSource<any>();
     this.dataSource6 = new MatTableDataSource<any>();
     this.newstatus = {} as Selectedstatus
+    this.userurlobject = {} as User
   }
 
   ngOnInit() {
@@ -59,6 +65,10 @@ export class SalesComponent implements OnInit {
       year:[''],
       month:['']
     })
+    this.typeusersaleform = this.formBuilder.group({
+      typeuser:[''],
+    })
+
 
     let pod=parseInt(this.ActivateRoute.snapshot.paramMap.get('id')!);
     this.whois = (this.ActivateRoute.snapshot.url[0].path)
@@ -67,6 +77,9 @@ export class SalesComponent implements OnInit {
     console.log(this.whois)
     console.log(this.idurl)
     
+    this.GetUserSaleManager()
+    this.GetAllSalesAsisstants()
+
     this.GetSalesQualification()  
     this.GetSalesProposal()  
     this.GetSalesNegotiation()  
@@ -1539,6 +1552,26 @@ export class SalesComponent implements OnInit {
 
     }
 
+  }
+
+  RealizarFiltroVenta(){
+
+  }
+
+  GetAllSalesAsisstants(){
+    this.userService.getAll().subscribe((response:any)=>{
+      for(let oneuser of response.content){
+        if(oneuser.typeusersale == "Asesor de ventas"){
+          this.users.push(oneuser.name)
+        }
+      }
+    });
+  }
+
+  GetUserSaleManager(){
+    this.userService.getbyId(this.idurl).subscribe((response:any) =>{
+      this.userurlobject = response
+    });
   }
 
 }
