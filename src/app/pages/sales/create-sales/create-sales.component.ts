@@ -18,6 +18,7 @@ export class CreateSalesComponent implements OnInit {
   customerbusiness!:string
   customers!:any[]
   datenow = new Date()
+  types:string[] = ["Soles","Dólares"]
 
   constructor(private saleService:SaleService, private formBuilder: FormBuilder,private customerService:CustomerService, private ActivateRoute:ActivatedRoute, @Inject(MAT_DIALOG_DATA) public idurl:any) { 
     this.saleobj = {} as Sale
@@ -29,7 +30,8 @@ export class CreateSalesComponent implements OnInit {
       name:['',Validators.required],
       customername:['',Validators.required],
       date:['',Validators.required],
-      import:['',Validators.required]
+      import:['',Validators.required],
+      typemoney:['',Validators.required],
      })
      console.log(this.idurl)
      this.getAllCustomers() 
@@ -37,6 +39,11 @@ export class CreateSalesComponent implements OnInit {
 
   RegisterSales(){
     console.log(this.saleobj)
+    if(this.saleobj.typecoin == "Soles"){
+      this.saleobj.typecoin = "S/."
+    }else if(this.saleobj.typecoin == "Dólares"){
+      this.saleobj.typecoin = "$"
+    }
     this.customerbusiness = this.salesform.controls['customername'].value 
     console.log(this.customerbusiness)
     this.customerService.getbyBusinessName(this.customerbusiness).subscribe((responsecustomer:any) =>{

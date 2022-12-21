@@ -38,7 +38,7 @@ export class SalesComponent implements OnInit {
   whois!:string
   idurl!:number
   months:string[] = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
-  lotstatus:string[] = ["Iniciada","Propuesta Inicial","Presupuesto","Negociación","Cerrada"]
+  lotstatus:string[] = ["Propuesta Inicial","Evaluación tecnica","Evaluación comercial","Cerrada (OC)","Perdida - Desestimada"]
   statusform!:FormGroup
   newstatus!:Selectedstatus
   constructor(public dialog:MatDialog,private saleService:SaleService,private cd:Router,private ActivateRoute:ActivatedRoute,private formBuilder: FormBuilder) { 
@@ -146,7 +146,7 @@ export class SalesComponent implements OnInit {
     console.log(value)
     console.log(saleid)
 
-    if(value == "Iniciada"){
+    if(value == "Propuesta Inicial"){
       
       this.newstatus.statusname = "Qualification"
 
@@ -166,7 +166,7 @@ export class SalesComponent implements OnInit {
           
       });
 
-    }else if(value == "Propuesta Inicial"){
+    }else if(value == "Evaluación tecnica"){
       
       this.newstatus.statusname = "Need_Analysis"
 
@@ -185,7 +185,7 @@ export class SalesComponent implements OnInit {
         }
       });
 
-    }else if(value == "Presupuesto"){
+    }else if(value == "Evaluación comercial"){
       
       this.newstatus.statusname = "Proposal"
 
@@ -204,7 +204,7 @@ export class SalesComponent implements OnInit {
         }  
       });
 
-    }else if(value == "Negociación"){
+    }else if(value == "Cerrada (OC)"){
       
       this.newstatus.statusname = "Negotiation"
 
@@ -223,7 +223,7 @@ export class SalesComponent implements OnInit {
         }
       });
 
-    }else if(value == "Cerrada"){
+    }else if(value == "Perdida - Desestimada"){
       
       this.newstatus.statusname = "Closed_Won"
 

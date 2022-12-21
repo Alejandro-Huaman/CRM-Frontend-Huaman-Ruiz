@@ -92,15 +92,15 @@ export class InsideSaleComponent implements OnInit {
       console.log(this.salesdate)
 
       if(this.objectsale.statusname == "Qualification"){
-        this.salestatus = "Iniciada" 
+        this.salestatus = "Propuesta inicial" 
       }else if(this.objectsale.statusname == "Need_Analysis"){
-        this.salestatus = "Propuesta Inicial"
+        this.salestatus = "Evaluación tecnica"
       }else if(this.objectsale.statusname == "Proposal"){
-        this.salestatus = "Presupuesto"
+        this.salestatus = "Evaluación comercial"
       }else if(this.objectsale.statusname == "Negotiation"){
-        this.salestatus = "Negociación"
+        this.salestatus = "Cerrada (OC)"
       }else if(this.objectsale.statusname == "Closed_Won"){
-        this.salestatus = "Cerrada"
+        this.salestatus = "Perdida - Desestimada"
       }
 
       console.log(this.objectsale)

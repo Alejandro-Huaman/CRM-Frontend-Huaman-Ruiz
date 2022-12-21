@@ -18,4 +18,6 @@ export interface Sale{
     statusname:string;
     
     created_at:Date;
+
+    typecoin:string;
 }

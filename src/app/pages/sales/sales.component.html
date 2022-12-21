@@ -44,27 +44,27 @@
     <tr>
       <th>
         <mat-card>
-          <h1 class="text-2xl">Iniciada</h1>
+          <h1 class="text-2xl">Propuesta inicial</h1>
         </mat-card>
       </th>
       <th>
         <mat-card>
-          <h1 class="text-2xl">Propuesta Inicial</h1>
+          <h1 class="text-2xl">Evaluación tecnica</h1>
         </mat-card>
       </th>
       <th>
         <mat-card>
-          <h1 class="text-2xl">Presupuesto</h1>
+          <h1 class="text-2xl">Evaluación comercial</h1>
         </mat-card>
       </th>
       <th>
         <mat-card>
-          <h1 class="text-2xl">Negociación</h1>
+          <h1 class="text-2xl">Cerrada (OC)</h1>
         </mat-card>
       </th>
       <th>
         <mat-card>
-          <h1 class="text-2xl">Cerrada</h1>
+          <h1 class="text-2xl">Perdida - Desestimada</h1>
         </mat-card>
       </th>
     </tr>  
@@ -73,10 +73,10 @@
         <tr *ngFor="let item of dataSource2.data">
           <mat-card class="w-4/5 ml-auto mr-auto">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
-              <mat-card-title>{{item.name}}</mat-card-title>
               <mat-card-content>
-                <h1>S/. {{item.amount}}</h1>
-                <h1>{{item.customer.name}}</h1>
+                <h1>{{item.customer.businessname}}</h1>
+                <h1>{{item.name}}</h1>
+                <h1>{{item.typecoin}} {{item.amount}}</h1>
               </mat-card-content>
             </button>
             <form [formGroup]="statusform">
@@ -96,10 +96,10 @@
         <tr *ngFor="let item of dataSource3.data">
         <mat-card class="w-4/5 ml-auto mr-auto">
           <button class="w-full" (click)="GoToInsideSale(item.id)">
-            <mat-card-title>{{item.name}}</mat-card-title>
             <mat-card-content>
-              <h1>S/. {{item.amount}}</h1>
-              <h1>{{item.customer.name}}</h1>
+              <h1>{{item.customer.businessname}}</h1>
+              <h1>{{item.name}}</h1>
+              <h1>{{item.typecoin}} {{item.amount}}</h1>
             </mat-card-content>
           </button>
           <form [formGroup]="statusform">
@@ -119,10 +119,10 @@
       <tr *ngFor="let item of dataSource4.data">
       <mat-card class="w-4/5 ml-auto mr-auto">
         <button class="w-full" (click)="GoToInsideSale(item.id)">
-          <mat-card-title>{{item.name}}</mat-card-title>
           <mat-card-content>
-            <h1>S/. {{item.amount}}</h1>
-            <h1>{{item.customer.name}}</h1>
+            <h1>{{item.customer.businessname}}</h1>
+            <h1>{{item.name}}</h1>
+            <h1>{{item.typecoin}} {{item.amount}}</h1>
           </mat-card-content>
         </button>
         <form [formGroup]="statusform">
@@ -142,10 +142,10 @@
       <tr *ngFor="let item of dataSource5.data">
       <mat-card class="w-4/5 ml-auto mr-auto">
         <button class="w-full" (click)="GoToInsideSale(item.id)">
-          <mat-card-title>{{item.name}}</mat-card-title>
           <mat-card-content>
-            <h1>S/. {{item.amount}}</h1>
-            <h1>{{item.customer.name}}</h1>
+            <h1>{{item.customer.businessname}}</h1>
+            <h1>{{item.name}}</h1>
+            <h1>{{item.typecoin}} {{item.amount}}</h1>
           </mat-card-content>
         </button>
         <form [formGroup]="statusform">
@@ -165,10 +165,10 @@
       <tr *ngFor="let item of dataSource6.data">
       <mat-card class="w-4/5 ml-auto mr-auto">
         <button class="w-full" (click)="GoToInsideSale(item.id)">
-          <mat-card-title>{{item.name}}</mat-card-title>
           <mat-card-content>
-            <h1>S/. {{item.amount}}</h1>
-            <h1>{{item.customer.name}}</h1>
+            <h1>{{item.customer.businessname}}</h1>
+            <h1>{{item.name}}</h1>
+            <h1>{{item.typecoin}} {{item.amount}}</h1>
           </mat-card-content>
         </button>
         <form [formGroup]="statusform">
