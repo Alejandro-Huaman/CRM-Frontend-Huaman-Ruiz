@@ -8,9 +8,9 @@
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline" class="w-96">
-      <mat-label>Nombre de Cliente</mat-label>
+      <mat-label>Razon social de Cliente</mat-label>
       <mat-select formControlName="customername">
-        <mat-option *ngFor="let cname of customers" [value]="cname.name">{{cname.name}}</mat-option>
+        <mat-option *ngFor="let cbusinessname of customers" [value]="cbusinessname.businessname">{{cbusinessname.businessname}}</mat-option>
       </mat-select>
       <mat-error *ngIf="salesform.controls['customername'].dirty && salesform.hasError('required') || salesform.controls['customername'].invalid">Complete este campo es requerido!</mat-error>
     </mat-form-field>

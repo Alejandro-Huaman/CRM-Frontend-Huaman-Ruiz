@@ -20,7 +20,6 @@ export class CreateCustomersComponent implements OnInit {
 
   ngOnInit() {
     this.customerform = this.formBuilder.group({
-      name:['',Validators.required],
       businessname:['',Validators.required],
       ruc:['',Validators.required],
       fiscaladdress:['',Validators.required],
@@ -33,7 +32,7 @@ export class CreateCustomersComponent implements OnInit {
     this.customerService.create(this.customerobj).subscribe((response:any)=>{
       this.newcustomercreated = response
     },err=>{
-      alert("Nombre repetido por favor coloque otro nombre")
+      alert("Razon social repetido por favor coloque otro nombre de empresa")
     })
   }
 

@@ -12,7 +12,7 @@ import { CreateCustomersComponent } from './create-customers/create-customers.co
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  displayedColumns: string[] = ['nombre','Razon Social', 'Ruc', 'Ventas'];
+  displayedColumns: string[] = ['Razon Social', 'Ruc', 'Ventas'];
   dataSource!:MatTableDataSource<any>;
   numbersale!:any
   cont:number = 0

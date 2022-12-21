@@ -2,7 +2,7 @@
 <div class="pb-10"></div>
 <div>
     <mat-card class="w-2/6 ml-auto mr-14">
-        <mat-card-title class="text-left">Regístrate {{usertype}}</mat-card-title>
+        <mat-card-title class="text-left">Regístrate</mat-card-title>
         <form class="form text-left" [formGroup]="registerform">
         <mat-form-field appearance="outline" class="w-full">
           <mat-label>Nombres</mat-label>
@@ -24,23 +24,18 @@
         </mat-form-field>
         <br>
         <mat-form-field appearance="outline" class="w-full">
-          <mat-label>Usuario</mat-label>
-          <input matInput formControlName="username" placeholder="Ingrese nombre de usuario" required maxlength="30" [(ngModel)]="userobject.username">
-          <mat-error *ngIf="registerform.controls['username'].dirty && registerform.hasError('required') || registerform.controls['username'].invalid">Complete este campo es requerido!</mat-error>
-        </mat-form-field>
-        <br>
-          <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Telefono</mat-label>
-            <input matInput formControlName="phone" placeholder="Ingrese telefono" required maxlength="15" [(ngModel)]="userobject.phone">
-            <mat-error *ngIf="registerform.controls['phone'].dirty && registerform.hasError('required') || registerform.controls['phone'].invalid">Complete este campo es requerido!</mat-error>
-          </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline" class="w-full">
           <mat-label>Contraseña</mat-label>
           <input matInput formControlName="password" placeholder="Ingrese contraseña" required [(ngModel)]="userobject.password">
           <mat-error *ngIf="registerform.controls['password'].dirty && registerform.hasError('required') || registerform.controls['password'].invalid">Complete este campo es requerido!</mat-error>
         </mat-form-field>
-        
+        <div *ngIf="usertype == 'Jefe de Ventas'">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="usersaletype" [(ngModel)]="userobject.typeusersale">
+              <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option> 
+            </mat-select>
+          </mat-form-field>
+        </div>
         <div class="text-center">
           <button class="bg-blue-400 text-white" mat-raised-button (click)="RegisterUser()" [disabled]="registerform.invalid">Registrarse</button>
         </div>  

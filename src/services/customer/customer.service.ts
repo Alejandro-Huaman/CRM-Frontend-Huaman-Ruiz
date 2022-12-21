@@ -47,8 +47,8 @@ export class CustomerService {
         catchError(this.handleError));
   }
 
-  getbyName(name:any): Observable<Customer> {
-    return this.http.get<Customer>(`${this.basePath}/name/${name}`, this.httpOptions)
+  getbyBusinessName(businessname:any): Observable<Customer> {
+    return this.http.get<Customer>(`${this.basePath}/businessname/${businessname}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

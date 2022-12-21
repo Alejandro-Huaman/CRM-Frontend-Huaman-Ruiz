@@ -6,9 +6,9 @@ export interface NewUser{
 
     email:string;
     
-    phone:string;
-    
     username:string;
 
     password:string;
+
+    typeusersale:string;
 }

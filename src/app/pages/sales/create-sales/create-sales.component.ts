@@ -15,7 +15,7 @@ export class CreateSalesComponent implements OnInit {
   salesform!:FormGroup
   saleobj!:Sale
   newsalecreated!:Sale
-  customername!:string
+  customerbusiness!:string
   customers!:any[]
   datenow = new Date()
 
@@ -37,9 +37,9 @@ export class CreateSalesComponent implements OnInit {
 
   RegisterSales(){
     console.log(this.saleobj)
-    this.customername = this.salesform.controls['customername'].value 
-    console.log(this.customername)
-    this.customerService.getbyName(this.customername).subscribe((responsecustomer:any) =>{
+    this.customerbusiness = this.salesform.controls['customername'].value 
+    console.log(this.customerbusiness)
+    this.customerService.getbyBusinessName(this.customerbusiness).subscribe((responsecustomer:any) =>{
       console.log(responsecustomer)
 
       this.saleService.create(this.idurl,responsecustomer.id,this.saleobj).subscribe((response:any)=>{

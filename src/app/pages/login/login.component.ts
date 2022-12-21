@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setToken(data.token)
         if(this.tokenService.isSalesManager()==true){
           console.log("es Jefe de Ventas")
-          this.userService.getbyUsername(this.tokenService.getUserName()).subscribe((response:any)=>{
+          this.userService.getbyEmail(this.tokenService.getUserName()).subscribe((response:any)=>{
 
             this.route.navigate([`/HomeSalesManager/${response.id}`]);
           })
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         }
         if(this.tokenService.isProjectManager()==true){
           console.log("es Jefe de Proyectos")
-          this.userService.getbyUsername(this.tokenService.getUserName()).subscribe((response:any)=>{
+          this.userService.getbyEmail(this.tokenService.getUserName()).subscribe((response:any)=>{
 
             this.route.navigate([`/HomeProjectManager/${response.id}`]);
           })
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         }
         if(this.tokenService.isEngineeringChief()==true){
           console.log("es Jefe de Ingenieria")
-          this.userService.getbyUsername(this.tokenService.getUserName()).subscribe((response:any)=>{
+          this.userService.getbyEmail(this.tokenService.getUserName()).subscribe((response:any)=>{
 
             this.route.navigate([`/HomeEngineeringChief/${response.id}`]);
           })

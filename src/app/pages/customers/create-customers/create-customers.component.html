@@ -2,12 +2,6 @@
 <div mat-dialog-content>
     <form [formGroup]="customerform">
     <mat-form-field appearance="outline" class="w-96">
-      <mat-label>Nombre</mat-label>
-      <input matInput formControlName="name" placeholder="Ingrese el nombre del cliente" required maxlength="30" [(ngModel)]="customerobj.name">
-      <mat-error *ngIf="customerform.controls['name'].dirty && customerform.hasError('required') || customerform.controls['name'].invalid">Complete este campo es requerido!</mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Razon social</mat-label>
       <input matInput formControlName="businessname" placeholder="Ingrese la razon social del cliente" required maxlength="30" [(ngModel)]="customerobj.businessname">
       <mat-error *ngIf="customerform.controls['businessname'].dirty && customerform.hasError('required') || customerform.controls['businessname'].invalid">Complete este campo es requerido!</mat-error>

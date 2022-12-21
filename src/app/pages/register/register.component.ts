@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   usertype!:string
   registerform!:FormGroup
   userobject!:NewUser
+  types:string[] = ["Jefe de ventas","Asesor de ventas"]
   constructor(private ActivateRoute:ActivatedRoute, public dialog:MatDialog, private formBuilder: FormBuilder, private authService:AuthService, private route:Router) {
     this.userobject = {} as NewUser 
   }
@@ -23,9 +24,8 @@ export class RegisterComponent implements OnInit {
     this.registerform = this.formBuilder.group({
       name:['',Validators.required],
       lastname:['',Validators.required],
-      username:['',Validators.required],
-      phone:['',Validators.required],
       password:['',Validators.required],
+      usersaletype:[''],
       email:['',[Validators.required,Validators.email]],
      })
     

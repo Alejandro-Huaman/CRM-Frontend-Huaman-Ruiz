@@ -30,7 +30,7 @@ export class LoginGuard implements CanActivate {
       console.log(this.realRol)
 
       if(this.realRol == 'Sales_Manager'){
-        this.userservice.getbyUsername(this.tokenService.getUserName()).subscribe((response:any)=>{
+        this.userservice.getbyEmail(this.tokenService.getUserName()).subscribe((response:any)=>{
 
           this.router.navigate([`/HomeSalesManager/${response.id}`]);
           return false;
@@ -38,7 +38,7 @@ export class LoginGuard implements CanActivate {
       }
 
       if(this.realRol == 'Project_Manager'){
-        this.userservice.getbyUsername(this.tokenService.getUserName()).subscribe((response:any)=>{
+        this.userservice.getbyEmail(this.tokenService.getUserName()).subscribe((response:any)=>{
 
           this.router.navigate([`/HomeProjectManager/${response.id}`]);
           return false;
@@ -46,7 +46,7 @@ export class LoginGuard implements CanActivate {
       }
 
       if(this.realRol == 'Engineering_chief'){
-        this.userservice.getbyUsername(this.tokenService.getUserName()).subscribe((response:any)=>{
+        this.userservice.getbyEmail(this.tokenService.getUserName()).subscribe((response:any)=>{
 
           this.router.navigate([`/HomeEngineeringChief/${response.id}`]);
           return false;
