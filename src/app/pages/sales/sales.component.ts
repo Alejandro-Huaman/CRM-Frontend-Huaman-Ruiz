@@ -35,8 +35,14 @@ export class SalesComponent implements OnInit {
   filterdataSource4:any[] = []
   filterdataSource5:any[] = []
   filterdataSource6:any[] = []
+  filteruserdataSource2:any[] = []
+  filteruserdataSource3:any[] = []
+  filteruserdataSource4:any[] = []
+  filteruserdataSource5:any[] = []
+  filteruserdataSource6:any[] = []
   month!:any
   year!:any
+  assistant!:any
   userurlobject!:User
   pipedate:DatePipe = new DatePipe("en-US")
   whois!:string
@@ -167,14 +173,32 @@ export class SalesComponent implements OnInit {
       
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)
-        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
-          this.GetSalesQualification()  
-          this.GetSalesProposal()  
-          this.GetSalesNegotiation()  
-          this.GetSalesNeed_Analysis()  
-          this.GetSalesClosed_Won()
-        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
-          this.RealizarFiltro()
+        if(this.userurlobject.typeusersale != "Jefe de ventas"){
+          
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }
+
+        }else{
+
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+            this.RealizarFiltroVenta()
+          }
+
         }
           
       });
@@ -187,14 +211,32 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)
-        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
-          this.GetSalesQualification()  
-          this.GetSalesProposal()  
-          this.GetSalesNegotiation()  
-          this.GetSalesNeed_Analysis()  
-          this.GetSalesClosed_Won()
-        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
-          this.RealizarFiltro()
+        if(this.userurlobject.typeusersale != "Jefe de ventas"){
+          
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }
+
+        }else{
+
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+            this.RealizarFiltroVenta()
+          }
+
         }
       });
 
@@ -206,15 +248,33 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)
-        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
-          this.GetSalesQualification()  
-          this.GetSalesProposal()  
-          this.GetSalesNegotiation()  
-          this.GetSalesNeed_Analysis()  
-          this.GetSalesClosed_Won()
-        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
-          this.RealizarFiltro()
-        }  
+        if(this.userurlobject.typeusersale != "Jefe de ventas"){
+          
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }
+
+        }else{
+
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+            this.RealizarFiltroVenta()
+          }
+
+        } 
       });
 
     }else if(value == "Cerrada (OC)"){
@@ -225,14 +285,32 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname) 
-        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
-          this.GetSalesQualification()  
-          this.GetSalesProposal()  
-          this.GetSalesNegotiation()  
-          this.GetSalesNeed_Analysis()  
-          this.GetSalesClosed_Won()
-        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
-          this.RealizarFiltro()
+        if(this.userurlobject.typeusersale != "Jefe de ventas"){
+          
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }
+
+        }else{
+
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+            this.RealizarFiltroVenta()
+          }
+
         }
       });
 
@@ -244,14 +322,32 @@ export class SalesComponent implements OnInit {
 
       this.saleService.updateStatus(saleid,this.newstatus).subscribe((response:any) =>{
         console.log(response.statusname)  
-        if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
-          this.GetSalesQualification()  
-          this.GetSalesProposal()  
-          this.GetSalesNegotiation()  
-          this.GetSalesNeed_Analysis()  
-          this.GetSalesClosed_Won()
-        }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
-          this.RealizarFiltro()
+        if(this.userurlobject.typeusersale != "Jefe de ventas"){
+          
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }
+
+        }else{
+
+          if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            this.GetSalesQualification()  
+            this.GetSalesProposal()  
+            this.GetSalesNegotiation()  
+            this.GetSalesNeed_Analysis()  
+            this.GetSalesClosed_Won()
+          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+            this.RealizarFiltro()
+          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+            this.RealizarFiltroVenta()
+          }
+
         }
       });
 
@@ -1555,7 +1651,62 @@ export class SalesComponent implements OnInit {
   }
 
   RealizarFiltroVenta(){
+    this.assistant = this.typeusersaleform.controls['typeuser'].value
+    console.log(this.assistant)
+    this.userService.getAll().subscribe((response:any) =>{
+      for(let oneuser of response.content){
+        if(oneuser.name == this.assistant && oneuser.typeusersale == "Asesor de ventas"){
+            this.saleService.getbyUserId(oneuser.id).subscribe((response:any)=>{
+              this.filteruserdataSource2 = []
+              this.filteruserdataSource3 = []
+              this.filteruserdataSource4 = []
+              this.filteruserdataSource5 = []
+              this.filteruserdataSource6 = []
 
+              for(let oneobject of response.content){
+
+                if(oneobject.statusname == "Qualification"){
+                  this.filteruserdataSource2.push(oneobject)
+                }
+
+                if(oneobject.statusname == "Need_Analysis"){
+                  this.filteruserdataSource3.push(oneobject)
+                }
+
+                if(oneobject.statusname == "Proposal"){
+                  this.filteruserdataSource4.push(oneobject)
+                }
+
+                if(oneobject.statusname == "Negotiation"){
+                  this.filteruserdataSource5.push(oneobject)
+                }
+
+                if(oneobject.statusname == "Closed_Won"){
+                  this.filteruserdataSource6.push(oneobject)
+                }
+
+              }
+
+              console.log("Qualification datos")
+              this.dataSource2.data = this.filteruserdataSource2
+              console.log(this.dataSource2.data)
+              console.log("Need_Analysis datos")
+              this.dataSource3.data = this.filteruserdataSource3
+              console.log(this.dataSource3.data)
+              console.log("Proposal datos")
+              this.dataSource4.data = this.filteruserdataSource4
+              console.log(this.dataSource4.data)
+              console.log("Negotiation datos")
+              this.dataSource5.data = this.filteruserdataSource5
+              console.log(this.dataSource5.data)
+              console.log("Closed_Won datos")
+              this.dataSource6.data = this.filteruserdataSource6
+              console.log(this.dataSource6.data)
+
+            });
+        }
+      }
+    });
   }
 
   GetAllSalesAsisstants(){
