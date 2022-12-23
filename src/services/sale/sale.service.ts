@@ -119,5 +119,12 @@ export class SaleService {
         retry(2),
         catchError(this.handleError));
   }
+
+  getSaleByUserIdAndMonthAndYear(userId:any,month:any,year:any): Observable<Sale> {
+    return this.http.get<Sale>(`${this.basePath}/user/${userId}/month/${month}/year/${year}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
   
 }
