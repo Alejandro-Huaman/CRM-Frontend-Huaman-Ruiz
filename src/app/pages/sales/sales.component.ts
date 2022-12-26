@@ -68,7 +68,7 @@ export class SalesComponent implements OnInit {
       status:[''],
     })
     this.yearmonthform = this.formBuilder.group({
-      year:[''],
+      year:['',Validators.required],
       month:['']
     })
     this.typeusersaleform = this.formBuilder.group({
@@ -188,16 +188,28 @@ export class SalesComponent implements OnInit {
         }else{
 
           if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion retorno de ventas por columnas")
+            
             this.GetSalesQualification()  
             this.GetSalesProposal()  
             this.GetSalesNegotiation()  
             this.GetSalesNeed_Analysis()  
             this.GetSalesClosed_Won()
-          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != "" && this.typeusersaleform.controls['typeuser'].value == ""){
+          }else if((this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != "") && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion filtro normal de mes y año")
+            
             this.RealizarFiltro()
-          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value == "" || this.yearmonthform.controls['year'].value == ""){
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value == ""){
+            console.log("Entra a funcion filtro por usuario")
+            
             this.RealizarFiltroVenta()
-          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['year'].value == ""){
+            console.log("Entra a funcion filtro por usuario 2")
+            
+            this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value != "" && this.yearmonthform.controls['year'].value != ""){
+            console.log("Entra a funcion filtroventa mes y año")
+
             this.RealizarFiltroSaleMonthYear()
           }
 
@@ -228,15 +240,29 @@ export class SalesComponent implements OnInit {
         }else{
 
           if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion retorno de ventas por columnas")
+            
             this.GetSalesQualification()  
             this.GetSalesProposal()  
             this.GetSalesNegotiation()  
             this.GetSalesNeed_Analysis()  
             this.GetSalesClosed_Won()
-          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          }else if((this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != "") && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion filtro normal de mes y año")
+            
             this.RealizarFiltro()
-          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value == ""){
+            console.log("Entra a funcion filtro por usuario")
+            
             this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['year'].value == ""){
+            console.log("Entra a funcion filtro por usuario 2")
+            
+            this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value != "" && this.yearmonthform.controls['year'].value != ""){
+            console.log("Entra a funcion filtroventa mes y año")
+
+            this.RealizarFiltroSaleMonthYear()
           }
 
         }
@@ -265,18 +291,32 @@ export class SalesComponent implements OnInit {
         }else{
 
           if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion retorno de ventas por columnas")
+            
             this.GetSalesQualification()  
             this.GetSalesProposal()  
             this.GetSalesNegotiation()  
             this.GetSalesNeed_Analysis()  
             this.GetSalesClosed_Won()
-          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          }else if((this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != "") && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion filtro normal de mes y año")
+            
             this.RealizarFiltro()
-          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value == ""){
+            console.log("Entra a funcion filtro por usuario")
+            
             this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['year'].value == ""){
+            console.log("Entra a funcion filtro por usuario 2")
+            
+            this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value != "" && this.yearmonthform.controls['year'].value != ""){
+            console.log("Entra a funcion filtroventa mes y año")
+
+            this.RealizarFiltroSaleMonthYear()
           }
 
-        } 
+        }
       });
 
     }else if(value == "Cerrada (OC)"){
@@ -302,15 +342,29 @@ export class SalesComponent implements OnInit {
         }else{
 
           if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion retorno de ventas por columnas")
+            
             this.GetSalesQualification()  
             this.GetSalesProposal()  
             this.GetSalesNegotiation()  
             this.GetSalesNeed_Analysis()  
             this.GetSalesClosed_Won()
-          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          }else if((this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != "") && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion filtro normal de mes y año")
+            
             this.RealizarFiltro()
-          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value == ""){
+            console.log("Entra a funcion filtro por usuario")
+            
             this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['year'].value == ""){
+            console.log("Entra a funcion filtro por usuario 2")
+            
+            this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value != "" && this.yearmonthform.controls['year'].value != ""){
+            console.log("Entra a funcion filtroventa mes y año")
+
+            this.RealizarFiltroSaleMonthYear()
           }
 
         }
@@ -339,15 +393,29 @@ export class SalesComponent implements OnInit {
         }else{
 
           if(this.yearmonthform.controls['month'].value == "" && this.yearmonthform.controls['year'].value == "" && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion retorno de ventas por columnas")
+            
             this.GetSalesQualification()  
             this.GetSalesProposal()  
             this.GetSalesNegotiation()  
             this.GetSalesNeed_Analysis()  
             this.GetSalesClosed_Won()
-          }else if(this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != ""){
+          }else if((this.yearmonthform.controls['month'].value != "" || this.yearmonthform.controls['year'].value != "") && this.typeusersaleform.controls['typeuser'].value == ""){
+            console.log("Entra a funcion filtro normal de mes y año")
+            
             this.RealizarFiltro()
-          }else if(this.typeusersaleform.controls['typeuser'].value != ""){
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value == ""){
+            console.log("Entra a funcion filtro por usuario")
+            
             this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['year'].value == ""){
+            console.log("Entra a funcion filtro por usuario 2")
+            
+            this.RealizarFiltroVenta()
+          }else if(this.typeusersaleform.controls['typeuser'].value != "" && this.yearmonthform.controls['month'].value != "" && this.yearmonthform.controls['year'].value != ""){
+            console.log("Entra a funcion filtroventa mes y año")
+
+            this.RealizarFiltroSaleMonthYear()
           }
 
         }
@@ -3034,605 +3102,611 @@ export class SalesComponent implements OnInit {
 
         if(oneuser.name == this.assistant && oneuser.typeusersale == "Asesor de ventas"){
           
-          if(this.month == "Enero"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Enero')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
+          if(this.month != "" && this.year != ""){
 
-              for(let oneobject of response.content){
+            if(this.month == "Enero"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Enero')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
 
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
                 }
 
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Febrero"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Febrero')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
                 }
 
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Marzo"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Marzo')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
                 }
 
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Abril"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Abril')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
                 }
 
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Mayo"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Mayo')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
                 }
 
-              }
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
 
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
+              });
+            }
+            if(this.month == "Junio"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Junio')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
 
-            });
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
+                }
+
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Julio"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Julio')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
+                }
+
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Agosto"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Agosto')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
+                }
+
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Septiembre"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Septiembre')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
+                }
+
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Octubre"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Octubre')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
+                }
+
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Noviembre"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Noviembre')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
+                }
+
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
+            if(this.month == "Diciembre"){
+              this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Diciembre')+1,this.year).subscribe((response:any)=>{
+                this.filteruserdataSource2 = []
+                this.filteruserdataSource3 = []
+                this.filteruserdataSource4 = []
+                this.filteruserdataSource5 = []
+                this.filteruserdataSource6 = []
+
+                for(let oneobject of response.content){
+
+                  if(oneobject.statusname == "Qualification"){
+                    this.filteruserdataSource2.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Need_Analysis"){
+                    this.filteruserdataSource3.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Proposal"){
+                    this.filteruserdataSource4.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Negotiation"){
+                    this.filteruserdataSource5.push(oneobject)
+                  }
+
+                  if(oneobject.statusname == "Closed_Won"){
+                    this.filteruserdataSource6.push(oneobject)
+                  }
+
+                }
+
+                console.log("Qualification datos")
+                this.dataSource2.data = this.filteruserdataSource2
+                console.log(this.dataSource2.data)
+                console.log("Need_Analysis datos")
+                this.dataSource3.data = this.filteruserdataSource3
+                console.log(this.dataSource3.data)
+                console.log("Proposal datos")
+                this.dataSource4.data = this.filteruserdataSource4
+                console.log(this.dataSource4.data)
+                console.log("Negotiation datos")
+                this.dataSource5.data = this.filteruserdataSource5
+                console.log(this.dataSource5.data)
+                console.log("Closed_Won datos")
+                this.dataSource6.data = this.filteruserdataSource6
+                console.log(this.dataSource6.data)
+
+              });
+            }
           }
-          if(this.month == "Febrero"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Febrero')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Marzo"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Marzo')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Abril"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Abril')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Mayo"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Mayo')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Junio"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Junio')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Julio"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Julio')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Agosto"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Agosto')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Septiembre"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Septiembre')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Octubre"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Octubre')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Noviembre"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Noviembre')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
-          }
-          if(this.month == "Diciembre"){
-            this.saleService.getSaleByUserIdAndMonthAndYear(oneuser.id,this.months.indexOf('Diciembre')+1,this.year).subscribe((response:any)=>{
-              this.filteruserdataSource2 = []
-              this.filteruserdataSource3 = []
-              this.filteruserdataSource4 = []
-              this.filteruserdataSource5 = []
-              this.filteruserdataSource6 = []
-
-              for(let oneobject of response.content){
-
-                if(oneobject.statusname == "Qualification"){
-                  this.filteruserdataSource2.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Need_Analysis"){
-                  this.filteruserdataSource3.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Proposal"){
-                  this.filteruserdataSource4.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Negotiation"){
-                  this.filteruserdataSource5.push(oneobject)
-                }
-
-                if(oneobject.statusname == "Closed_Won"){
-                  this.filteruserdataSource6.push(oneobject)
-                }
-
-              }
-
-              console.log("Qualification datos")
-              this.dataSource2.data = this.filteruserdataSource2
-              console.log(this.dataSource2.data)
-              console.log("Need_Analysis datos")
-              this.dataSource3.data = this.filteruserdataSource3
-              console.log(this.dataSource3.data)
-              console.log("Proposal datos")
-              this.dataSource4.data = this.filteruserdataSource4
-              console.log(this.dataSource4.data)
-              console.log("Negotiation datos")
-              this.dataSource5.data = this.filteruserdataSource5
-              console.log(this.dataSource5.data)
-              console.log("Closed_Won datos")
-              this.dataSource6.data = this.filteruserdataSource6
-              console.log(this.dataSource6.data)
-
-            });
+          if((this.month == "" && this.year != "") || (this.month != "" && this.year == "")){
+            this.RealizarFiltroVenta()
           }
             
         }
