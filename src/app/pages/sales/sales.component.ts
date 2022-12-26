@@ -69,7 +69,7 @@ export class SalesComponent implements OnInit {
     })
     this.yearmonthform = this.formBuilder.group({
       year:['',Validators.required],
-      month:['']
+      month:['',Validators.required]
     })
     this.typeusersaleform = this.formBuilder.group({
       typeuser:[''],
