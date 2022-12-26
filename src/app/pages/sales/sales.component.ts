@@ -3072,6 +3072,11 @@ export class SalesComponent implements OnInit {
         }
       }
     });
+
+    this.yearmonthform.patchValue({
+      year:'',
+      month:''
+    })
   }
 
   GetAllSalesAsisstants(){
