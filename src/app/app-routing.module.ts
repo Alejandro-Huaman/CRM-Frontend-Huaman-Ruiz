@@ -10,6 +10,8 @@ import { CreateCustomersComponent } from './pages/customers/create-customers/cre
 import { CustomersComponent } from './pages/customers/customers.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 import { OptionsRegisterComponent } from './pages/register/options-register/options-register.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CreateSalesComponent } from './pages/sales/create-sales/create-sales.component';
@@ -23,6 +25,7 @@ const routes: Routes = [
   {path:"register/ProjectManager",component: RegisterComponent},
   {path:"register/EngineeringChief",component: RegisterComponent},
   {path:"register-option",component: OptionsRegisterComponent},
+  {path:"recover-password",component: RecoverPasswordComponent},
   
   //Sections Project Manager
   {path:"HomeProjectManager/:id",component: HomeComponent,canActivate: [ProjectmanagerGuard], data:{expectedRol: ['Project_Manager'] }},
@@ -30,6 +33,7 @@ const routes: Routes = [
   {path:"HomeProjectManager/:id/Sales",component: SalesComponent,canActivate: [ProjectmanagerGuard], data:{expectedRol: ['Project_Manager'] }},
   {path:"HomeProjectManager/:id/Activities",component: ActivitiesComponent,canActivate: [ProjectmanagerGuard], data:{expectedRol: ['Project_Manager'] }},
   {path:"HomeProjectManager/:id/Sales/:saleid/inside-sale",component: InsideSaleComponent,canActivate: [ProjectmanagerGuard], data:{expectedRol: ['Project_Manager'] }},
+  {path:"HomeProjectManager/:id/Profile",component: ProfileComponent,canActivate: [ProjectmanagerGuard], data:{expectedRol: ['Project_Manager'] }},
 
   //Sections Sales Manager
   {path:"HomeSalesManager/:id",component: HomeComponent,canActivate: [SalemanagerGuard], data:{expectedRol: ['Sales_Manager'] }},
@@ -37,6 +41,7 @@ const routes: Routes = [
   {path:"HomeSalesManager/:id/Sales",component: SalesComponent,canActivate: [SalemanagerGuard], data:{expectedRol: ['Sales_Manager'] }},
   {path:"HomeSalesManager/:id/Activities",component: ActivitiesComponent,canActivate: [SalemanagerGuard], data:{expectedRol: ['Sales_Manager'] }},
   {path:"HomeSalesManager/:id/Sales/:saleid/inside-sale",component: InsideSaleComponent,canActivate: [SalemanagerGuard], data:{expectedRol: ['Sales_Manager'] }},
+  {path:"HomeSalesManager/:id/Profile",component: ProfileComponent,canActivate: [SalemanagerGuard], data:{expectedRol: ['Sales_Manager'] }},
 
   //Sections Engineering Chief
   {path:"HomeEngineeringChief/:id",component: HomeComponent,canActivate: [EngineeringchiefGuard], data:{expectedRol: ['Engineering_chief'] }},
@@ -44,6 +49,7 @@ const routes: Routes = [
   {path:"HomeEngineeringChief/:id/Sales",component: SalesComponent,canActivate: [EngineeringchiefGuard], data:{expectedRol: ['Engineering_chief'] }},
   {path:"HomeEngineeringChief/:id/Activities",component: ActivitiesComponent,canActivate: [EngineeringchiefGuard], data:{expectedRol: ['Engineering_chief'] }},
   {path:"HomeEngineeringChief/:id/Sales/:saleid/inside-sale",component: InsideSaleComponent,canActivate: [EngineeringchiefGuard], data:{expectedRol: ['Engineering_chief'] }},
+  {path:"HomeEngineeringChief/:id/Profile",component: ProfileComponent,canActivate: [EngineeringchiefGuard], data:{expectedRol: ['Engineering_chief'] }},
 
 ];
 

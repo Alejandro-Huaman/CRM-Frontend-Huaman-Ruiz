@@ -42,4 +42,8 @@ export class HeaderHomeComponent implements OnInit {
     this.tokenService.logOut()
   }
 
+  Profile(){
+    this.cd.navigate([this.whois,this.idurl,'Profile'])
+  }
+
 }

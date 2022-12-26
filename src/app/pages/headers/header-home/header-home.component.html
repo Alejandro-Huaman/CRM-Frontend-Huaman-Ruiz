@@ -19,7 +19,7 @@
         <img src="assets/images/arrow-down.png" class="h-5 w-5">
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Perfil</button>
+        <button mat-menu-item (click)="Profile()">Perfil</button>
         <button mat-menu-item (click)="LogOut()">Salir</button>
       </mat-menu>
   </mat-toolbar>

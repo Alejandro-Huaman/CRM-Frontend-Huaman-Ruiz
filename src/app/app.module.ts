@@ -21,6 +21,8 @@ import { InsideSaleComponent } from './pages/sales/inside-sale/inside-sale.compo
 import { SwiperModule } from 'swiper/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateTaskDialogComponent } from './pages/dialog-answer-messages/create-task-dialog/create-task-dialog.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 
 @NgModule({
   declarations: [	
@@ -38,7 +40,9 @@ import { CreateTaskDialogComponent } from './pages/dialog-answer-messages/create
     CreateSalesComponent,
     ActivitiesComponent,
     InsideSaleComponent,
-    CreateTaskDialogComponent
+    CreateTaskDialogComponent,
+    ProfileComponent,
+    RecoverPasswordComponent
    ],
   imports: [
     BrowserModule,
