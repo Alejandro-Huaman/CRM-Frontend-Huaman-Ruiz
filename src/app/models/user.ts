@@ -15,4 +15,6 @@ export interface User{
     password:string;
 
     typeusersale:string
+
+    rolname:string
 }

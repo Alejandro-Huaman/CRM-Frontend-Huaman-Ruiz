@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateTaskDialogComponent } from './pages/dialog-answer-messages/create-task-dialog/create-task-dialog.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
+import { EditPasswordComponent } from './pages/profile/edit-password/edit-password.component';
 
 @NgModule({
   declarations: [	
@@ -42,7 +43,8 @@ import { RecoverPasswordComponent } from './pages/recover-password/recover-passw
     InsideSaleComponent,
     CreateTaskDialogComponent,
     ProfileComponent,
-    RecoverPasswordComponent
+    RecoverPasswordComponent,
+    EditPasswordComponent
    ],
   imports: [
     BrowserModule,

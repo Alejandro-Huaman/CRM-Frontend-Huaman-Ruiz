@@ -1,6 +1,14 @@
 <app-header-home></app-header-home>
 <div class="pb-32"></div>
-<mat-card class="ml-5 mr-5">  
+<mat-card class="ml-5 mr-5">
+  <div class="text-right">
+    <div class="inline-flex">
+      <button mat-raised-button (click)="ActivateEditarPerfil()">Editar perfil</button>
+      <div class="pr-10"></div>
+      <button mat-raised-button (click)="GoToEditPassword()">Editar contraseña</button>
+      <div class="pr-5"></div>
+    </div>
+  </div>  
   <div style="padding-left: 43%;">
     <div class="inline-flex">
       <img src="assets/images/perfil.png">
@@ -12,24 +20,79 @@
   </div>
   <br>
   <br>
-  <div class="text-center">
-    <div class="inline-flex">
-      <h1>Nombre: Nombre usuario</h1>
-      <div class="pr-40"></div>
-      <h1>Apellido: Apellido usuario</h1>
+  <table class="mr-auto ml-auto">
+    <tr>
+      <th class="font-normal text-left">
+          <div *ngIf="editactivate == false">
+            <h1>Nombre: {{objectuserurl.name}}</h1>
+          </div>
+          <div *ngIf="editactivate == true">
+            <div class="inline-flex">
+              <h1 class="pt-5">Nombre:</h1>
+              <div class="pr-5"></div>
+              <form [formGroup]="updateform">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput formControlName="name" placeholder="Ingrese nombre" required maxlength="30" [(ngModel)]="objectupdateuser.name">
+                  <mat-error *ngIf="updateform.controls['name'].dirty && updateform.hasError('required') || updateform.controls['name'].invalid">Complete este campo es requerido!</mat-error>
+                </mat-form-field>
+              </form>
+            </div>
+          </div>
+        <br>
+        <br>
+        <div *ngIf="editactivate == false">
+          <h1>Email: {{objectuserurl.email}}</h1>
+        </div>
+        <div *ngIf="editactivate == true">
+          <div class="inline-flex">
+            <h1 class="pt-5">Email:</h1>
+            <div class="pr-9"></div>
+            <form [formGroup]="updateform">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Ingrese email" required maxlength="70" [(ngModel)]="objectupdateuser.email">
+                <mat-error *ngIf="updateform.controls['email'].touched && updateform.controls['email'].hasError('required')">Complete este campo es requerido!</mat-error>
+                <mat-error *ngIf="updateform.controls['email'].dirty && updateform.controls['email'].hasError('email')">Email invalido complete con un email!</mat-error>
+              </mat-form-field>
+            </form>
+          </div>
+        </div>
+      </th>
+      <div class="pr-48"></div>
+      <th class="font-normal text-left align-top">
+        <div *ngIf="editactivate == false">
+          <h1>Apellido: {{objectuserurl.lastname}}</h1>
+        </div>
+        <div *ngIf="editactivate == true">
+          <div class="inline-flex">
+            <h1 class="pt-5">Apellido:</h1>
+            <div class="pr-9"></div>
+            <form [formGroup]="updateform">
+              <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput formControlName="lastname" placeholder="Ingrese apellido" required maxlength="30" [(ngModel)]="objectupdateuser.lastname">
+                <mat-error *ngIf="updateform.controls['lastname'].dirty && updateform.hasError('required') || updateform.controls['lastname'].invalid">Complete este campo es requerido!</mat-error>
+              </mat-form-field>
+            </form>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div *ngIf="objectuserurl.rolname != 'Sales_Manager'">
+          <h1>Tipo de usuario: {{objectuserurl.rolname}}</h1>
+        </div>
+        <div *ngIf="objectuserurl.rolname == 'Sales_Manager'">
+          <h1>Tipo de usuario: {{objectuserurl.typeusersale}}</h1>
+        </div>
+      </th>
+    </tr>
+  </table>
+  <br>
+  <div *ngIf="editactivate == true">
+    <div class="text-right pr-20">
+      <button mat-raised-button (click)="EditProfile()" [disabled]="updateform.invalid">Actualizar</button>
     </div>
     <br>
-    <br>
-    <br>
-    <div class="inline-flex">
-      <h1>Email: Email usuario</h1>
-      <div class="pr-44"></div>
-      <h1>Tipo de usuario: Tipo usuario</h1>
-    </div>
-    <br>
-    <br>
-    <br>
-    <h1>Contraseña: Contraseña usuario</h1>
   </div>
-  
 </mat-card>

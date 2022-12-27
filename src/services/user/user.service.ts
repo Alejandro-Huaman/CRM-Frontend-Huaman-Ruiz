@@ -61,6 +61,13 @@ export class UserService {
         catchError(this.handleError));
   }
 
+  updatePasswordUser(userid: any, item: any): Observable<User> {
+    return this.http.put<User>(`${this.basePath}/${userid}/password`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
   updateRol(id: any, item: any): Observable<User> {
     return this.http.put<User>(`${this.basePath}/${id}/rol`, JSON.stringify(item), this.httpOptions)
       .pipe(
