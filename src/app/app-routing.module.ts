@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { EditPasswordComponent } from './pages/profile/edit-password/edit-password.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CreateNewPasswordComponent } from './pages/recover-password/create-new-password/create-new-password.component';
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 import { OptionsRegisterComponent } from './pages/register/options-register/options-register.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:"register/EngineeringChief",component: RegisterComponent},
   {path:"register-option",component: OptionsRegisterComponent},
   {path:"recover-password",component: RecoverPasswordComponent},
+  {path:"User/:id/create-new-password",component: CreateNewPasswordComponent},
   
   //Sections Project Manager
   {path:"HomeProjectManager/:id",component: HomeComponent,canActivate: [ProjectmanagerGuard], data:{expectedRol: ['Project_Manager'] }},

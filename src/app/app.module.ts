@@ -24,6 +24,7 @@ import { CreateTaskDialogComponent } from './pages/dialog-answer-messages/create
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 import { EditPasswordComponent } from './pages/profile/edit-password/edit-password.component';
+import { CreateNewPasswordComponent } from './pages/recover-password/create-new-password/create-new-password.component';
 
 @NgModule({
   declarations: [	
@@ -44,7 +45,8 @@ import { EditPasswordComponent } from './pages/profile/edit-password/edit-passwo
     CreateTaskDialogComponent,
     ProfileComponent,
     RecoverPasswordComponent,
-    EditPasswordComponent
+    EditPasswordComponent,
+    CreateNewPasswordComponent
    ],
   imports: [
     BrowserModule,
