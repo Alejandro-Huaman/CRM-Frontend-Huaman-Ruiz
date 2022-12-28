@@ -92,7 +92,11 @@
   <br>
   <div *ngIf="editactivate == true">
     <div class="text-right pr-20">
-      <button mat-raised-button (click)="EditProfile()" [disabled]="updateform.invalid">Actualizar</button>
+      <div class="inline-flex">
+        <button mat-raised-button (click)="DesactivateEdit()">Cancelar</button>
+        <div class="pr-5"></div>
+        <button mat-raised-button (click)="EditProfile()" [disabled]="updateform.invalid">Actualizar</button>
+      </div>
     </div>
     <br>
   </div>

@@ -61,6 +61,10 @@ export class ProfileComponent implements OnInit {
     this.editactivate = true
   }
 
+  DesactivateEdit(){
+    this.editactivate = false
+  }
+
   EditProfile(){
     console.log(this.objectupdateuser)
     this.userService.update(this.objectuserurl.id,this.objectupdateuser).subscribe((response:any) =>{
