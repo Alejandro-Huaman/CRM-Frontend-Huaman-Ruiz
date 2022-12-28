@@ -119,7 +119,7 @@ export class ProfileComponent implements OnInit {
     this.imageService.getImageByUserId(this.idurl).subscribe((response: any)=>{   
         
         if(response.numberOfElements == 0){
-            this.retrievedImage="https://cdn.discordapp.com/attachments/1008578583251406990/1031677299101286451/unknown.png"
+            this.retrievedImage="assets/images/perfil.png"
             
         }else{
             this.retrievedImage=response.content[0].imagenUrl

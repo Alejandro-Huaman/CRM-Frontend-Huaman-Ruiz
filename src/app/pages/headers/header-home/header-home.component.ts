@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageService } from 'src/services/image/image.service';
 import { TokenService } from 'src/services/token/token.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { TokenService } from 'src/services/token/token.service';
 export class HeaderHomeComponent implements OnInit {
   idurl!:number
   whois!:string
-  constructor(private route:ActivatedRoute, private cd:Router, private ActivateRoute:ActivatedRoute, private tokenService:TokenService) { }
+  profileimage!:any
+  constructor(private route:ActivatedRoute, private cd:Router, private ActivateRoute:ActivatedRoute, private tokenService:TokenService,private imageService:ImageService) { }
 
   ngOnInit() {
     let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
@@ -19,7 +21,8 @@ export class HeaderHomeComponent implements OnInit {
 
     console.log(this.idurl)
     console.log(this.whois)
-
+    
+    this.getImage()
   }
 
   GoToHome(){
@@ -44,6 +47,21 @@ export class HeaderHomeComponent implements OnInit {
 
   Profile(){
     this.cd.navigate([this.whois,this.idurl,'Profile'])
+  }
+
+  getImage(){
+    
+    this.imageService.getImageByUserId(this.idurl).subscribe((response: any)=>{   
+        
+        if(response.numberOfElements == 0){
+            this.profileimage="assets/images/perfil.png"
+            
+        }else{
+            this.profileimage=response.content[0].imagenUrl
+        }
+
+    });
+
   }
 
 }
