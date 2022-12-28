@@ -23,6 +23,7 @@ export class InsideSaleComponent implements OnInit {
   saleidurl!:number
   objectsale!:Sale
   salesdate!:any
+  taskdate!:any
   pipedate:DatePipe = new DatePipe("en-US")
   datenow = new Date()
   emailform!:FormGroup
@@ -151,7 +152,16 @@ export class InsideSaleComponent implements OnInit {
     this.taskService.create(this.saleidurl,this.objappointtask).subscribe((response:any) =>{
       this.dataSource.data.push({...response})
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
-      this.dialog.open(CreateTaskDialogComponent)
+
+      this.taskdate = this.pipedate.transform(response.date, 'dd-MM-yyyy');
+      console.log(this.taskdate)
+
+      this.emailService.sendEmail(this.objectsale.customer.email,"Horario de reunión", `Muy buenas se informa que se va a realizar una reunion para hablar con mas detalle acerca de la cotización (${this.objectsale.name}) en el respectivo horario: ${this.taskdate} entre ${response.inithour} hasta ${response.finalhour}`).subscribe((response:any)=>{
+        this.dialog.open(CreateTaskDialogComponent)
+      },err=>{
+        alert("No existe el correo electronico por favor editar el correo del cliente")
+      });
+
     });
   }
 
@@ -168,7 +178,15 @@ export class InsideSaleComponent implements OnInit {
     this.taskService.create(this.saleidurl,this.objtask).subscribe((response:any) =>{
       this.dataSource.data.push({...response})
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
-      this.dialog.open(CreateTaskDialogComponent)
+      
+      this.taskdate = this.pipedate.transform(response.date, 'dd-MM-yyyy');
+      console.log(this.taskdate)
+
+      this.emailService.sendEmail(this.objectsale.customer.email,"Actividad con Vida Automation",`Muy buenas se informa acerca de la actividad ${response.title} para la cotización ${this.objectsale.name} que trata de lo siguiente: ${response.description} en la fecha ${this.taskdate}`).subscribe((response:any)=>{
+        this.dialog.open(CreateTaskDialogComponent)
+      },err=>{
+        alert("No existe el correo electronico por favor editar el correo del cliente")
+      });
     });
   }
 
