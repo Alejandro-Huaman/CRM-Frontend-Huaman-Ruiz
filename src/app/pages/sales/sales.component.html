@@ -26,10 +26,11 @@
           <mat-select formControlName="typeuser" >
             <mat-option *ngFor="let user of users" [value]="user">{{user}}</mat-option>
           </mat-select>
+          <mat-error>Por favor complete este campo para realizar el filtro por Asesor</mat-error>
         </mat-form-field>
         <div class="pr-8"></div>
         <div class="pt-4">
-          <button mat-raised-button class="h-10" (click)="RealizarFiltroVenta()">Filtrar por Asesor</button>
+          <button mat-raised-button class="h-10" (click)="RealizarFiltroVenta()" [disabled]="typeusersaleform.invalid">Filtrar por Asesor</button>
         </div>
       </div>
     </form>
@@ -45,13 +46,13 @@
             <mat-select formControlName="month">
               <mat-option *ngFor="let month of months" [value]="month">{{month}}</mat-option>
             </mat-select>
-            <mat-error>Por favor complete este campo para realizar el filtro</mat-error>
+            <mat-error>Por favor complete este campo para realizar el filtro por mes y año</mat-error>
           </mat-form-field>
           <div class="pr-5"></div>
           <mat-form-field appearance="outline">
             <mat-label>Seleccionar Año</mat-label>
             <input matInput formControlName="year">
-            <mat-error>Por favor complete este campo para realizar el filtro</mat-error>
+            <mat-error>Por favor complete este campo para realizar el filtro por mes y año</mat-error>
           </mat-form-field>
       </div> 
     </form>

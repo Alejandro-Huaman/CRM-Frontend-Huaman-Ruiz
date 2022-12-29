@@ -72,7 +72,7 @@ export class SalesComponent implements OnInit {
       month:['',Validators.required]
     })
     this.typeusersaleform = this.formBuilder.group({
-      typeuser:[''],
+      typeuser:['',Validators.required],
     })
 
 
