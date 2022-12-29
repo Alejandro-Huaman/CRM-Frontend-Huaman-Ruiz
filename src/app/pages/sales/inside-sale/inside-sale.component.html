@@ -7,7 +7,7 @@
     </div>
     <div class="pr-5"></div>
     <div>
-      <h1>Venta</h1>
+      <h1>Cotización</h1>
       <h2>{{objectsale.name}}</h2>
     </div>
   </div>
@@ -30,7 +30,7 @@
     </div>
     <div class="pr-20"></div>
     <div>
-      <h1>Propietario de la venta:</h1>
+      <h1>Propietario de la cotización:</h1>
       <h2>{{objectsale.user.name}} {{objectsale.user.lastname}}</h2>
     </div>
   </div>
@@ -41,19 +41,21 @@
     <th>
       <mat-card class="mat-elevation ml-5">
         <mat-card class="font-normal">
-          <h1 class="text-left font-bold">Detalles de la venta</h1>
+          <h1 class="text-left font-bold">Detalles de la cotización</h1>
           <br>
-          <h2 class="text-left">Nombre de venta: {{objectsale.name}}</h2>
+          <h2 class="text-left">Nombre de cotización: {{objectsale.name}}</h2>
           <div class="pb-2"></div>
           <h2 class="text-left">Propietario: {{objectsale.user.name}} {{objectsale.user.lastname}}</h2>
           <div class="pb-2"></div>
           <h2 class="text-left">Cliente: {{objectsale.customer.businessname}}</h2>
           <div class="pb-2"></div>
+          <h2 class="text-left">Referencia: {{objectsale.reference}}</h2>
+          <div class="pb-2"></div>
           <h2 class="text-left">Fecha a finalizar: {{salesdate}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Importe de la venta: {{objectsale.typecoin}} {{objectsale.amount}}</h2>
+          <h2 class="text-left">Importe de la cotización: {{objectsale.typecoin}} {{objectsale.amount}}</h2>
           <div class="pb-2"></div>
-          <h2 class="text-left">Estado de la venta: {{salestatus}}</h2>
+          <h2 class="text-left">Estado de la cotización: {{salestatus}}</h2>
         </mat-card>
         <div class="pb-5"></div>
         <mat-card class="text-left font-normal">
@@ -76,7 +78,7 @@
           </div>
           <div class="pb-2"></div>
           <div class="inline-flex">
-            <h1>Venta creada:</h1>
+            <h1>Cotización creada:</h1>
             <div class="pr-5"></div>
             <h1>{{createsaledate}}</h1>
           </div>
@@ -246,6 +248,18 @@
             </div>
             <div class="pb-2"></div>
           </div>
+      </mat-card>
+      <br>
+      <mat-card class="mat-elevation mr-5">
+        <div class="text-left">
+          <h1>Adjuntar archivo</h1>
+          <br>
+          <button onclick="document.getElementById('my-file').click()">
+            <mat-icon>add</mat-icon>
+          </button>
+          <input type="file" id="my-file" (change)="onFileChanged($event)">
+          <br>
+        </div>
       </mat-card>
     </th>
   </tr>

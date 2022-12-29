@@ -209,4 +209,8 @@ export class InsideSaleComponent implements OnInit {
     });
     
   }
+
+  onFileChanged(event:any){
+
+  }
 }
