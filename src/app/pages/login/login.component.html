@@ -1,10 +1,10 @@
 <app-initheader></app-initheader>
-<div>
+<div style="background-image: url('https://vida-automation.com/wp-content/uploads/2022/08/Imagen23-100x50.png');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
     <div class="pt-20"></div>
-    <img src="assets/images/Logo_login.jpg" class="h-48 ml-auto mr-auto">
+    <img src="assets/images/Logo_login.png" class="h-48 ml-auto mr-auto">
     <div class="pt-20"></div>
     <mat-card class="w-1/4 ml-auto mr-auto">
-        <mat-card-title>Bienvenido!</mat-card-title>
+        <mat-card-title style="font-family: 'Roboto', sans-serif;">Bienvenido!</mat-card-title>
         <mat-card-content>
             <form class="text-left" [formGroup]="loginform">
                 <mat-form-field appearance="outline" class="w-full">
@@ -22,10 +22,10 @@
                   <mat-error>Complete este campo es requerido!</mat-error>
                 </mat-form-field>
     
-                <p class="text-blue-600 text-right">¿Olvidaste tu contraseña? <a href="/recover-password">Click Aquí</a></p>
+                <p class="text-black text-right">¿Olvidaste tu contraseña? <a href="/recover-password" class="text-blue-600">Click Aquí</a></p>
                 <br>
                 <div class="text-center">
-                  <button class = "w-full bg-blue-400 text-white" mat-raised-button (click)="Login()" [disabled]="loginform.invalid">Ingresar</button>
+                  <button class = "w-full bg-black text-white" mat-raised-button (click)="Login()" [disabled]="loginform.invalid">Ingresar</button>
                 </div>
                 <br>
                 <p class="text-black text-center">¿Si no tienes una cuenta? 
@@ -34,4 +34,7 @@
                 </form>
         </mat-card-content>
     </mat-card>
+    <div class="pb-20"></div>
+    <div class="pb-20"></div>
+    <div class="pb-10"></div>
 </div>
