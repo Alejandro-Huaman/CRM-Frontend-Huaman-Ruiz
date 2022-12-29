@@ -32,7 +32,7 @@ export class CreateCustomersComponent implements OnInit {
     this.customerService.create(this.customerobj).subscribe((response:any)=>{
       this.newcustomercreated = response
     },err=>{
-      alert("Razon social repetido por favor coloque otro nombre de empresa")
+      alert("Razon social repetido o Email repetido por favor coloque otro nombre de empresa u otro email")
     })
   }
 

@@ -12,4 +12,6 @@ export interface Customer{
 
     numbersales:number;
 
+    customercode:string;
+
 }

@@ -12,7 +12,7 @@ import { CreateCustomersComponent } from './create-customers/create-customers.co
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  displayedColumns: string[] = ['Razon Social', 'Ruc', 'Ventas'];
+  displayedColumns: string[] = ['Razon Social', 'Ruc', 'Codigo'];
   dataSource!:MatTableDataSource<any>;
   numbersale!:any
   cont:number = 0
@@ -51,7 +51,17 @@ export class CustomersComponent implements OnInit {
           console.log(response)
           onecustomer.numbersales = response
         });
-        
+
+        if(onecustomer.id < 10){
+          onecustomer.customercode = "000"+ onecustomer.id
+        }else if(onecustomer.id >= 10 && onecustomer.id < 100){
+          onecustomer.customercode = "00"+ onecustomer.id
+        }else if(onecustomer.id >= 100 && onecustomer.id < 1000){
+          onecustomer.customercode = "0"+ onecustomer.id
+        }else if(onecustomer.id >= 1000){
+          onecustomer.customercode = String(onecustomer.id)
+        }
+
       }
       
       console.log(this.dataSource.data)

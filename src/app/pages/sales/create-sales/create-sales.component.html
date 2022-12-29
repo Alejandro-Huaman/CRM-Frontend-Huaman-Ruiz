@@ -3,7 +3,7 @@
     <form [formGroup]="salesform">
     <mat-form-field appearance="outline" class="w-96">
       <mat-label>Número de propuesta</mat-label>
-      <input matInput formControlName="name" placeholder="Ingrese el número de propuesta de su venta" required maxlength="30" [(ngModel)]="saleobj.name">
+      <input matInput formControlName="name" placeholder="Ingrese el número de propuesta de su cotización" required maxlength="30" [(ngModel)]="saleobj.name">
       <mat-error *ngIf="salesform.controls['name'].dirty && salesform.hasError('required') || salesform.controls['name'].invalid">Complete este campo es requerido!</mat-error>
     </mat-form-field>
     <br>
@@ -16,6 +16,12 @@
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Referencia</mat-label>
+      <input matInput formControlName="reference" placeholder="Ingrese una referencia para su cotización" required [(ngModel)]="saleobj.reference">
+      <mat-error *ngIf="salesform.controls['reference'].dirty && salesform.hasError('required') || salesform.controls['reference'].invalid">Complete este campo es requerido!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Fecha de cierre</mat-label>
       <input matInput formControlName="date" [matDatepicker]="picker" [min]="datenow" placeholder="Ingrese la fecha de finalización" required [(ngModel)]="saleobj.finishdate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -25,7 +31,7 @@
     <br>
     <mat-form-field appearance="outline" class="w-96">
       <mat-label>Importe</mat-label>
-      <input matInput formControlName="import" placeholder="Ingrese el importe de la venta"  required [(ngModel)]="saleobj.amount">
+      <input matInput formControlName="import" placeholder="Ingrese el importe de la cotización"  required [(ngModel)]="saleobj.amount">
       <mat-error *ngIf="salesform.controls['import'].dirty && salesform.hasError('required') || salesform.controls['import'].invalid">Complete este campo es requerido!</mat-error>
     </mat-form-field>
     <br>

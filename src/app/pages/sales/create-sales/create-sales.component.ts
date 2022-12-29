@@ -32,6 +32,7 @@ export class CreateSalesComponent implements OnInit {
       date:['',Validators.required],
       import:['',Validators.required],
       typemoney:['',Validators.required],
+      reference:['',Validators.required],
      })
      console.log(this.idurl)
      this.getAllCustomers() 

@@ -20,4 +20,6 @@ export interface Sale{
     created_at:Date;
 
     typecoin:string;
+
+    reference:string;
 }
