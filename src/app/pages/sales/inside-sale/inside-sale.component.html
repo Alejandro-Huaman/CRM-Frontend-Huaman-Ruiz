@@ -254,11 +254,22 @@
         <div class="text-left">
           <h1>Adjuntar archivo</h1>
           <br>
-          <button onclick="document.getElementById('my-file').click()">
-            <mat-icon>add</mat-icon>
-          </button>
-          <input type="file" id="my-file" (change)="onFileChanged($event)">
-          <br>
+          <div *ngIf="objectsale.user.id == idurl">
+            <div class="inline-flex">
+              <button onclick="document.getElementById('my-file').click()">
+                <mat-icon>add</mat-icon>
+              </button>
+              <input style="display: none;" type="file" id="my-file" (change)="onFileChanged($event)">
+              <div class="pr-10"></div>
+              <h1>{{filename}}</h1>
+            </div>
+          </div>
+          <div *ngIf="objectsale.user.id != idurl">
+            <h1>{{filename}}</h1>
+          </div>
+          <div class="text-right">
+            <button mat-raised-button (click)="DownloadFile()">Descargar</button>
+          </div>
         </div>
       </mat-card>
     </th>

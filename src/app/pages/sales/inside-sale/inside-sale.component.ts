@@ -10,6 +10,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskDialogComponent } from '../../dialog-answer-messages/create-task-dialog/create-task-dialog.component';
 import { EmailService } from 'src/services/email/email.service';
+import { FileService } from 'src/services/file/file.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-inside-sale',
@@ -35,10 +37,14 @@ export class InsideSaleComponent implements OnInit {
   createtaskdate!:any
   createsaledate!:any
   salestatus!:string
+  selectedFile!: File;
+  FileMin!: File;
+  filename!:string
+  idurl!:number
   dataSource!:MatTableDataSource<any>;
   dataSource2!:MatTableDataSource<any>;
   constructor(private ActivateRoute:ActivatedRoute, private saleService:SaleService, private formBuilder: FormBuilder, private taskService:TaskService, public dialog:MatDialog,
-    private emailService:EmailService) {
+    private emailService:EmailService,private fileService:FileService) {
 
     this.objectsale = {} as Sale
     this.objemailtask = {} as Task
@@ -69,11 +75,14 @@ export class InsideSaleComponent implements OnInit {
     })
 
     let pod=parseInt(this.ActivateRoute.snapshot.paramMap.get('saleid')!);
+    let pod2=parseInt(this.ActivateRoute.snapshot.paramMap.get('id')!);
     this.whois = (this.ActivateRoute.snapshot.url[0].path)
     this.saleidurl= pod;
+    this.idurl = pod2
 
     console.log(this.whois)
     console.log(this.saleidurl)
+    console.log(this.idurl)
 
     for(let i=1;i<25;i++){
       this.templatehour = String(i) + this.templatehour;        
@@ -110,6 +119,8 @@ export class InsideSaleComponent implements OnInit {
       
       console.log("Fecha de creacion de venta")
       console.log(this.createsaledate)
+
+      this.getFileName(this.objectsale)
     });
   }
 
@@ -211,6 +222,62 @@ export class InsideSaleComponent implements OnInit {
   }
 
   onFileChanged(event:any){
+    console.log(event)
 
+    this.selectedFile = event.target.files[0];
+    
+    console.log(this.selectedFile)
+    
+    const fr = new FileReader();
+    
+    fr.onload = (evento: any) => {
+      this.FileMin = evento.target.result;
+    };
+
+    fr.readAsDataURL(this.selectedFile);
+    
+    console.log("file")
+
+    this.fileService.getFileByUserIdandSaleId(this.objectsale.user.id,this.objectsale.id).subscribe((response:any)=>{
+        if(response.content.length){
+          console.log(response.content[0])
+          this.fileService.delete(response.content[0].id).subscribe((response:any)=>{
+            
+            this.fileService.uploadfileforUserandSale(this.selectedFile,this.objectsale.user.id,this.objectsale.id).subscribe((response: any)=>{
+              console.log("actualizado")
+              console.log(response)
+              this.filename = response.body.filename
+              this.getFileName(this.objectsale)
+            });
+
+          });
+        }else{
+          console.log("No hay archivo")
+          this.fileService.uploadfileforUserandSale(this.selectedFile,this.objectsale.user.id,this.objectsale.id).subscribe((response: any)=>{
+            console.log(response)
+            this.filename = response.body.filename
+            this.getFileName(this.objectsale)
+          });
+        }
+    });
   }
+
+  getFileName(objectsale:Sale){
+    this.fileService.getFileByUserIdandSaleId(objectsale.user.id,objectsale.id).subscribe((response:any)=>{
+      console.log(response.content[0])
+      this.filename = response.content[0].filename
+    });
+  }
+
+  DownloadFile(){
+    if(this.filename != null){
+      this.fileService.downloadFiles(this.filename).subscribe((event:any) =>{
+        console.log(event)
+        saveAs(new File([event.body!],this.filename,{type: `${event.headers.get('Content-Type')};charset=utf-8`}));
+      })
+    }else{
+      alert("No existe archivo para descargar")  
+    }
+  }
+
 }
