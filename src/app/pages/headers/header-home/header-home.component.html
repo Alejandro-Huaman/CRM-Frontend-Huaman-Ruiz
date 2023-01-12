@@ -3,18 +3,18 @@
       <a (click)="GoToHome()" style="cursor: pointer;">
         <img src="assets/images/Logo.png">
       </a>
-      <span>Customer Relationship Management (CRM)</span>
+      <span class="text-blue-900">Customer Relationship Management (CRM)</span>
       <div class="flex-auto"></div>
-      <a (click)="GoToHome()" style="cursor: pointer;">Inicio</a>
-      <div class="pr-10"></div>
-      <a (click)="GoToCustomers()" style="cursor: pointer;">Clientes</a>
-      <div class="pr-10"></div>
-      <a (click)="GoToSales()" style="cursor: pointer;">Cotizaciones</a>
-      <div class="pr-10"></div>
-      <a (click)="GoToActivities()" style="cursor: pointer;">Actividades</a>
-      <div class="pr-10"></div>
-      <img [src]="profileimage" class="h-14">
-      <div class="pr-2"></div>
+        <a (click)="GoToHome()" style="cursor: pointer;">Inicio</a>
+        <div class="pr-10"></div>
+        <a (click)="GoToCustomers()" style="cursor: pointer;">Clientes</a>
+        <div class="pr-10"></div>
+        <a (click)="GoToSales()" style="cursor: pointer;">Cotizaciones</a>
+        <div class="pr-10"></div>
+        <a (click)="GoToActivities()" style="cursor: pointer;">Actividades</a>
+        <div class="pr-10"></div>
+        <img [src]="profileimage" class="h-14">
+        <div class="pr-2"></div>
       <button [matMenuTriggerFor]="menu">
         <img src="assets/images/arrow-down.png" class="h-5 w-5">
       </button>

@@ -1,46 +1,49 @@
 <app-header-home></app-header-home>
-<br>
-<section>
-    <swiper
-    [slidesPerView]="1"
-    [spaceBetween]="10"
-    [navigation]="true"
-    [loop]="true"
-    [pagination]="{
-        clickable: true
-    }"
-    class="mySwiper"
->
-<ng-template swiperSlide>
-    <div style="background-image: url('assets/images/Home2.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;" class="text-center">
-        <div class="pb-10"></div>
-        <div class="inline-flex">
-            <div class="text-left ">
-                <div class="pt-48"></div>
-                <h1 class="text-2xl text-white font-medium">SOMOS</h1>
-                <br>
-                <div class="bg-blue-900 w-20 h-3"></div>
-                <br>
-                <h2 class="text-4xl text-white">Especialistas en <span class="text-sky-300">optimizar</span></h2>
-                <h2 class="text-4xl text-white">los procesos de trabajo</h2>
+<div style="background-image: url('assets/images/home_background.jpg');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
+    <br>
+    <section>
+        <swiper
+        [slidesPerView]="1"
+        [spaceBetween]="10"
+        [navigation]="true"
+        [loop]="true"
+        [pagination]="{
+            clickable: true
+        }"
+        class="mySwiper"
+    >
+    <ng-template swiperSlide>
+        <div style="background-image: url('assets/images/Home2.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;" class="text-center">
+            <div class="pb-10"></div>
+            <div class="inline-flex">
+                <div class="text-left ">
+                    <div class="pt-48"></div>
+                    <h1 class="text-2xl text-white font-medium">SOMOS</h1>
+                    <br>
+                    <div class="bg-blue-900 w-20 h-3"></div>
+                    <br>
+                    <h2 class="text-4xl text-white">Especialistas en <span class="text-sky-300">optimizar</span></h2>
+                    <h2 class="text-4xl text-white">los procesos de trabajo</h2>
+                </div>
+                <div class="pr-72"></div>
+                <img src="assets/images/image1_swiper.jpg" style="height: 400pt;">
             </div>
-            <div class="pr-72"></div>
-            <img src="assets/images/image1_swiper.jpg" style="height: 400pt;">
+            <div class="pb-14"></div>
         </div>
-        <div class="pb-14"></div>
-    </div>
-</ng-template>
-<ng-template swiperSlide>
-    <div style="background-image: url('https://www.ulima.edu.pe/sites/default/files/styles/600x300/public/news/img/inge_ind_1.jpg?itok=6T74THaO'); background-position: center; background-size: cover; background-repeat: no-repeat;" class="text-center">
-        <div class="pb-40"></div>
-        <div style="padding-left: 29%;">
-            <img src="assets/images/Home.png">
+    </ng-template>
+    <ng-template swiperSlide>
+        <div style="background-image: url('https://www.ulima.edu.pe/sites/default/files/styles/600x300/public/news/img/inge_ind_1.jpg?itok=6T74THaO'); background-position: center; background-size: cover; background-repeat: no-repeat;" class="text-center">
+            <div class="pb-40"></div>
+            <div style="padding-left: 29%;">
+                <img src="assets/images/Home.png">
+            </div>
+            <div class="pb-40"></div>
         </div>
-        <div class="pb-40"></div>
-    </div>
-</ng-template>
-</swiper>
-</section>
+    </ng-template>
+    </swiper>
+    </section>
+<div class="pb-44"></div>
+</div>
 
 <meta
       name="viewport"
@@ -63,4 +66,3 @@
       },
     });
   </script>
-  

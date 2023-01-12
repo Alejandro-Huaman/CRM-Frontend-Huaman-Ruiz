@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   usertype!:string
   registerform!:FormGroup
   userobject!:NewUser
+  whois!:string
   types:string[] = ["Jefe de ventas","Asesor de ventas"]
   constructor(private ActivateRoute:ActivatedRoute, public dialog:MatDialog, private formBuilder: FormBuilder, private authService:AuthService, private route:Router) {
     this.userobject = {} as NewUser 
@@ -29,15 +30,15 @@ export class RegisterComponent implements OnInit {
       email:['',[Validators.required,Validators.email]],
      })
     
-    let whois =(this.ActivateRoute.snapshot.url[1].path)
-    console.log(whois)
-    if(whois == "SalesManager"){
+    this.whois =(this.ActivateRoute.snapshot.url[1].path)
+    console.log(this.whois)
+    if(this.whois == "SalesManager"){
       this.usertype =  "Jefe de Ventas"
     }
-    if(whois == "ProjectManager"){
+    if(this.whois == "ProjectManager"){
       this.usertype =  "Jefe de Proyectos"
     }
-    if(whois == "EngineeringChief"){
+    if(this.whois == "EngineeringChief"){
       this.usertype =  "Jefe de Ingeniería"
     }
 

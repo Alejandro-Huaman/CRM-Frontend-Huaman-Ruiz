@@ -1,45 +1,71 @@
 <app-initheader></app-initheader>
-<div class="pb-10"></div>
-<div>
-    <mat-card class="w-2/6 ml-auto mr-14">
-        <mat-card-title class="text-left">Regístrate</mat-card-title>
-        <form class="form text-left" [formGroup]="registerform">
-        <mat-form-field appearance="outline" class="w-full">
-          <mat-label>Nombres</mat-label>
-          <input matInput formControlName="name" placeholder="Ingrese sus nombres" required maxlength="30" [(ngModel)]="userobject.name">
-          <mat-error *ngIf="registerform.controls['name'].dirty && registerform.hasError('required') || registerform.controls['name'].invalid">Complete este campo es requerido!</mat-error>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline" class="w-full">
-          <mat-label>Apellidos</mat-label>
-          <input matInput formControlName="lastname" placeholder="Ingrese sus apellidos" required maxlength="30" [(ngModel)]="userobject.lastname">
-          <mat-error *ngIf="registerform.controls['lastname'].dirty && registerform.hasError('required') || registerform.controls['lastname'].invalid">Complete este campo es requerido!</mat-error>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline" class="w-full">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" placeholder="Ingrese email"  required maxlength="70" [(ngModel)]="userobject.email">
-          <mat-error *ngIf="registerform.controls['email'].touched && registerform.controls['email'].hasError('required')">Complete este campo es requerido!</mat-error>
-          <mat-error *ngIf="registerform.controls['email'].dirty && registerform.controls['email'].hasError('email')">Email invalido complete con un email!</mat-error>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline" class="w-full">
-          <mat-label>Contraseña</mat-label>
-          <input matInput formControlName="password" placeholder="Ingrese contraseña" required [(ngModel)]="userobject.password">
-          <mat-error *ngIf="registerform.controls['password'].dirty && registerform.hasError('required') || registerform.controls['password'].invalid">Complete este campo es requerido!</mat-error>
-        </mat-form-field>
-        <div *ngIf="usertype == 'Jefe de Ventas'">
-          <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Tipo</mat-label>
-            <mat-select formControlName="usersaletype" [(ngModel)]="userobject.typeusersale">
-              <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option> 
-            </mat-select>
-          </mat-form-field>
+<div style="background-image: url('assets/images/bg_login.jpeg');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
+  <div class="pb-10"></div>
+  <div class="text-center pt-32">
+    <div class="inline-flex">
+      <div *ngIf="whois =='EngineeringChief'">
+        <img src="assets/images/engineeringchief_register.jpg" class="h-96 pt-16">
+      </div>
+      <div *ngIf="whois =='ProjectManager'">
+        <img src="assets/images/projectmanager_register.jpg" class="h-96 pt-16">
+      </div>
+      <div *ngIf="whois =='SalesManager'">
+        <div class="inline-flex">
+          <img src="assets/images/salesmanager_register.png" class="h-96 pt-20">
+          <div class="pr-10"></div>
+          <img src="assets/images/salesassistant_register.jpg" class="h-96 pt-20">
         </div>
-        <div class="text-center">
-          <button class="bg-blue-400 text-white" mat-raised-button (click)="RegisterUser()" [disabled]="registerform.invalid">Registrarse</button>
-        </div>  
-      </form>
-      </mat-card>
-    <div class="pb-10"></div>
+      </div>
+      <div class="pr-96"></div>
+        <mat-card class="w-3/6 ml-auto mr-14">
+            <mat-card-title class="text-left">Regístrate</mat-card-title>
+            <form class="form text-left" [formGroup]="registerform">
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Nombres</mat-label>
+              <input matInput formControlName="name" placeholder="Ingrese sus nombres" required maxlength="30" [(ngModel)]="userobject.name">
+              <mat-error *ngIf="registerform.controls['name'].dirty && registerform.hasError('required') || registerform.controls['name'].invalid">Complete este campo es requerido!</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Apellidos</mat-label>
+              <input matInput formControlName="lastname" placeholder="Ingrese sus apellidos" required maxlength="30" [(ngModel)]="userobject.lastname">
+              <mat-error *ngIf="registerform.controls['lastname'].dirty && registerform.hasError('required') || registerform.controls['lastname'].invalid">Complete este campo es requerido!</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="Ingrese email"  required maxlength="70" [(ngModel)]="userobject.email">
+              <mat-error *ngIf="registerform.controls['email'].touched && registerform.controls['email'].hasError('required')">Complete este campo es requerido!</mat-error>
+              <mat-error *ngIf="registerform.controls['email'].dirty && registerform.controls['email'].hasError('email')">Email invalido complete con un email!</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Contraseña</mat-label>
+              <input matInput formControlName="password" placeholder="Ingrese contraseña" required [(ngModel)]="userobject.password">
+              <mat-error *ngIf="registerform.controls['password'].dirty && registerform.hasError('required') || registerform.controls['password'].invalid">Complete este campo es requerido!</mat-error>
+            </mat-form-field>
+            <div *ngIf="usertype == 'Jefe de Ventas'">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Tipo</mat-label>
+                <mat-select formControlName="usersaletype" [(ngModel)]="userobject.typeusersale">
+                  <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option> 
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="text-center">
+              <button class="text-white bg-black" mat-raised-button (click)="RegisterUser()" [disabled]="registerform.invalid">Registrarse</button>
+            </div>  
+          </form>
+        </mat-card>
+    </div>
+  </div>
+  <div *ngIf="usertype == 'Jefe de Ventas'">
+    <div class="pb-24"></div>
+  </div>
+  <div *ngIf="usertype == 'Jefe de Proyectos'">
+    <div class="pb-44"></div>
+  </div>
+  <div *ngIf="usertype == 'Jefe de Ingeniería'">
+    <div class="pb-44"></div>
+  </div>
 </div>
