@@ -1,15 +1,16 @@
 <app-header-home></app-header-home>
+<div style="background-image: url('assets/images/home_background.jpg');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
 <div class="pb-5"></div>
-<mat-card class="mat-elevation ml-5 mr-5">
+<mat-card class="mat-elevation ml-5 mr-5" style="border-radius: 15px;">
   <div class="pb-5"></div>
   <div class="text-center">
     <div class="inline-flex">
-      <h1 class="pt-2">Cotizaciones!</h1>
+      <h1 class="pt-2 font-medium" style="font-size: larger;">Cotizaciones!</h1>
       <div class="pr-96"></div>
       <div class="pr-96"></div>
       <div class="pr-96"></div>
-      <div class="pr-60"></div>
-      <button mat-raised-button (click)="OpenCreateSales()">
+      <div class="pr-56"></div>
+      <button mat-raised-button class="bg-black text-white" (click)="OpenCreateSales()">
         Nuevas Cotizaciones
       </button>
     </div>
@@ -30,7 +31,7 @@
         </mat-form-field>
         <div class="pr-8"></div>
         <div class="pt-4">
-          <button mat-raised-button class="h-10" (click)="RealizarFiltroVenta()" [disabled]="typeusersaleform.invalid">Filtrar por Asesor</button>
+          <button mat-raised-button class="h-10 bg-black text-white" (click)="RealizarFiltroVenta()" [disabled]="typeusersaleform.invalid">Filtrar por Asesor</button>
         </div>
       </div>
     </form>
@@ -58,65 +59,65 @@
     </form>
     <div class="pr-10"></div>
     <div class="pt-4">
-      <button mat-raised-button class="h-10" (click)="RealizarFiltro()" [disabled]="yearmonthform.invalid">Filtrar por mes y año</button>
+      <button mat-raised-button class="h-10 bg-black text-white" (click)="RealizarFiltro()" [disabled]="yearmonthform.invalid">Filtrar por mes y año</button>
     </div>
   </div>
   <div class="pb-8"></div>
-  <table class="w-full border-4">
+  <table class="w-full border-4 bg-blue-900 border-blue-200">
     <tr>
       <th>
-        <mat-card>
+        <mat-card class="bg-blue-900 text-white">
           <h1 class="text-2xl">Propuesta inicial</h1>
         </mat-card>
       </th>
       <th>
-        <mat-card>
+        <mat-card class="bg-blue-900 text-white">
           <h1 class="text-2xl">Evaluación tecnica</h1>
         </mat-card>
       </th>
       <th>
-        <mat-card>
+        <mat-card class="bg-blue-900 text-white">
           <h1 class="text-2xl">Evaluación comercial</h1>
         </mat-card>
       </th>
       <th>
-        <mat-card>
+        <mat-card class="bg-blue-900 text-white">
           <h1 class="text-2xl">Cerrada (OC)</h1>
         </mat-card>
       </th>
       <th>
-        <mat-card>
+        <mat-card class="bg-blue-900 text-white">
           <h1 class="text-2xl">Perdida - Desestimada</h1>
         </mat-card>
       </th>
     </tr>  
-    <th class="border-x-4 w-96">
+    <th class="border-x-4 w-96 border-blue-200">
       <div class="pb-5"></div>
         <tr *ngFor="let item of dataSource2.data">
           <div *ngIf="userurlobject.typeusersale != 'Asesor de ventas'">
-            <mat-card class="w-4/5 ml-auto mr-auto">
-              <button class="w-full" (click)="GoToInsideSale(item.id)">
-                <mat-card-content>
-                  <h1>{{item.customer.businessname}}</h1>
-                  <h1>{{item.name}}</h1>
-                  <h1>{{item.typecoin}} {{item.amount}}</h1>
-                </mat-card-content>
-              </button>
-              <form [formGroup]="statusform">
-                <mat-form-field appearance="outline" class="w-36 h-10">
-                  <mat-label>Estado</mat-label>
-                  <mat-select formControlName="status" (selectionChange)="Changestatus($event.value,item.id)">
-                    <mat-option *ngFor="let onestatus of lotstatus" [value]="onestatus">{{onestatus}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </form>
-              <div class="pb-5"></div>
+            <mat-card class="w-full ml-14 mr-14 bg-blue-300">
+                <button class="w-full" (click)="GoToInsideSale(item.id)">
+                  <mat-card-content>
+                    <h1>{{item.customer.businessname}}</h1>
+                    <h1>{{item.name}}</h1>
+                    <h1>{{item.typecoin}} {{item.amount}}</h1>
+                  </mat-card-content>
+                </button>
+                <form [formGroup]="statusform">
+                  <mat-form-field appearance="outline" class="w-36 h-10">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="status" (selectionChange)="Changestatus($event.value,item.id)">
+                      <mat-option *ngFor="let onestatus of lotstatus" [value]="onestatus">{{onestatus}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+                <div class="pb-5"></div>
             </mat-card>
             <div class="pb-5"></div>
         </div>
         <div *ngIf="userurlobject.typeusersale == 'Asesor de ventas'">
           <div *ngIf="item.user.name == userurlobject.name && item.user.typeusersale == 'Asesor de ventas'">
-            <mat-card class="w-4/5 ml-auto mr-auto">
+            <mat-card class="w-full ml-14 mr-14 bg-blue-300">
               <button class="w-full" (click)="GoToInsideSale(item.id)">
                 <mat-card-content>
                   <h1>{{item.customer.businessname}}</h1>
@@ -139,10 +140,10 @@
         </div>
         </tr>
     </th>
-    <th class="border-x-4 w-64">
+    <th class="border-x-4 w-64 border-blue-200">
         <tr *ngFor="let item of dataSource3.data">
           <div *ngIf="userurlobject.typeusersale != 'Asesor de ventas'">
-            <mat-card class="w-4/5 ml-auto mr-auto">
+            <mat-card class="w-full ml-6 mr-5 bg-blue-300">
               <button class="w-full" (click)="GoToInsideSale(item.id)">
                 <mat-card-content>
                   <h1>{{item.customer.businessname}}</h1>
@@ -164,7 +165,7 @@
         </div>
         <div *ngIf="userurlobject.typeusersale == 'Asesor de ventas'">
           <div *ngIf="item.user.name == userurlobject.name && item.user.typeusersale == 'Asesor de ventas'">
-            <mat-card class="w-4/5 ml-auto mr-auto">
+            <mat-card class="w-full ml-6 mr-5 bg-blue-300">
               <button class="w-full" (click)="GoToInsideSale(item.id)">
                 <mat-card-content>
                   <h1>{{item.customer.businessname}}</h1>
@@ -187,10 +188,10 @@
         </div>
         </tr>
     </th>
-    <th class="border-x-4 w-64">
+    <th class="border-x-4 w-64 border-blue-200">
       <tr *ngFor="let item of dataSource4.data">
         <div *ngIf="userurlobject.typeusersale != 'Asesor de ventas'">
-          <mat-card class="w-4/5 ml-auto mr-auto">
+          <mat-card class="w-full ml-6 mr-5 bg-blue-300">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
               <mat-card-content>
                 <h1>{{item.customer.businessname}}</h1>
@@ -212,7 +213,7 @@
       </div>
       <div *ngIf="userurlobject.typeusersale == 'Asesor de ventas'">
         <div *ngIf="item.user.name == userurlobject.name && item.user.typeusersale == 'Asesor de ventas'">
-          <mat-card class="w-4/5 ml-auto mr-auto">
+          <mat-card class="w-full ml-6 mr-5 bg-blue-300">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
               <mat-card-content>
                 <h1>{{item.customer.businessname}}</h1>
@@ -235,10 +236,10 @@
       </div>
       </tr>
     </th>
-    <th class="border-x-4 w-64">
+    <th class="border-x-4 w-64 border-blue-200">
       <tr *ngFor="let item of dataSource5.data">
         <div *ngIf="userurlobject.typeusersale != 'Asesor de ventas'">
-          <mat-card class="w-4/5 ml-auto mr-auto">
+          <mat-card class="w-full ml-6 mr-5 bg-blue-300">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
               <mat-card-content>
                 <h1>{{item.customer.businessname}}</h1>
@@ -260,7 +261,7 @@
       </div>
       <div *ngIf="userurlobject.typeusersale == 'Asesor de ventas'">
         <div *ngIf="item.user.name == userurlobject.name && item.user.typeusersale == 'Asesor de ventas'">
-          <mat-card class="w-4/5 ml-auto mr-auto">
+          <mat-card class="w-full ml-6 mr-5 bg-blue-300">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
               <mat-card-content>
                 <h1>{{item.customer.businessname}}</h1>
@@ -283,10 +284,10 @@
       </div>
       </tr>
     </th>
-    <th class="border-x-4 w-96">
+    <th class="border-x-4 w-96 border-blue-200">
       <tr *ngFor="let item of dataSource6.data">
         <div *ngIf="userurlobject.typeusersale != 'Asesor de ventas'">
-          <mat-card class="w-4/5 ml-auto mr-auto">
+          <mat-card class="w-full ml-14 mr-14 bg-blue-300">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
               <mat-card-content>
                 <h1>{{item.customer.businessname}}</h1>
@@ -308,7 +309,7 @@
       </div>
       <div *ngIf="userurlobject.typeusersale == 'Asesor de ventas'">
         <div *ngIf="item.user.name == userurlobject.name && item.user.typeusersale == 'Asesor de ventas'">
-          <mat-card class="w-4/5 ml-auto mr-auto">
+          <mat-card class="w-full ml-14 mr-14 bg-blue-300">
             <button class="w-full" (click)="GoToInsideSale(item.id)">
               <mat-card-content>
                 <h1>{{item.customer.businessname}}</h1>
@@ -334,4 +335,22 @@
   </table>
   <div class="pb-5"></div>
 </mat-card>
-<div class="pb-5"></div>
+
+  <div *ngIf="userurlobject.typeusersale == 'Asesor de ventas'">
+    <div class="pb-56"></div>
+    <div class="pb-28"></div>
+    <div class="pb-9"></div>
+    <div class="pb-24"></div>
+  </div>
+  <div *ngIf="userurlobject.typeusersale == 'Jefe de ventas'">
+    <div class="pb-56"></div>
+    <div class="pb-28"></div>
+    <div class="pb-9"></div>
+  </div>
+  <div *ngIf="userurlobject.rolname != 'Sales_Manager'">
+    <div class="pb-56"></div>
+    <div class="pb-28"></div>
+    <div class="pb-32"></div>
+  </div>
+
+</div>

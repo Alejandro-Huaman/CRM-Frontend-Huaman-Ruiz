@@ -1,46 +1,46 @@
 <app-header-home></app-header-home>
-<div class="pb-10"></div>
-<mat-card class="mat-elevation mr-5 ml-5">
-    <div class="pb-10"></div>
-    <h1 class="text-center">Historial de actividades!</h1>
-    <div class="pb-10"></div>
-    <div class="border ml-5 mr-5">
-      <table mat-table [dataSource]="dataSource.data" class="w-full">
-    
-        <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef> Titulo</th>
-          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef> Descripción</th>
-          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef> Fecha </th>
-          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="sale">
-          <th mat-header-cell *matHeaderCellDef> Venta </th>
-          <td mat-cell *matCellDef="let element"> {{element.sales.name}} </td>
-        </ng-container>
+<div style="background-image: url('assets/images/home_background.jpg');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
+  <div class="pb-10"></div>
+  <mat-card class="mat-elevation mr-5 ml-5 bg-blue-900" style="border-radius: 15px;">
+      <div class="pb-5"></div>
+      <h1 class="text-center text-white font-medium">Historial de actividades!</h1>
+      <div class="pb-10"></div>
+      <div class="border ml-5 mr-5">
+        <table mat-table [dataSource]="dataSource.data" class="w-full bg-blue-300 text-center">
+      
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef><h1 class="text-center">Titulo</h1></th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef><h1 class="text-center">Descripción</h1></th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef><h1 class="text-center">Fecha</h1></th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="sale">
+            <th mat-header-cell *matHeaderCellDef><h1 class="text-center">Venta</h1></th>
+            <td mat-cell *matCellDef="let element"> {{element.sales.name}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="customer">
-          <th mat-header-cell *matHeaderCellDef> Cliente </th>
-          <td mat-cell *matCellDef="let element"> {{element.sales.customer.businessname}} </td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-    
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons 
-                     aria-label="Select page of periodic elements">
-      </mat-paginator>
-    </div>
-    <div class="pb-5"></div>
-  </mat-card>
-<div class="pb-5"></div>
+          <ng-container matColumnDef="customer">
+            <th mat-header-cell *matHeaderCellDef><h1 class="text-center">Cliente</h1></th>
+            <td mat-cell *matCellDef="let element"> {{element.sales.customer.businessname}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <div class="pb-5"></div>
+    </mat-card>
+    <div class="pb-96"></div>
+    <div class="pb-28"></div>
+    <div class="pb-20"></div>
+    <div class="pb-2"></div>
+</div>

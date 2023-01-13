@@ -1,17 +1,18 @@
 <app-header-home></app-header-home>
+<div style="background-image: url('assets/images/home_background.jpg');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
 <div class="pb-32"></div>
-<mat-card class="mat-elevation ml-5 mr-5">
+<mat-card class="mat-elevation ml-5 mr-5" style="border-radius: 15px;">
   <div class="text-right">
     <div class="inline-flex">
-      <button mat-raised-button (click)="ActivateEditarPerfil()">Editar perfil</button>
+      <button mat-raised-button class="bg-black text-white" (click)="ActivateEditarPerfil()">Editar perfil</button>
       <div class="pr-10"></div>
-      <button mat-raised-button (click)="GoToEditPassword()">Editar contraseña</button>
+      <button mat-raised-button class="bg-black text-white" (click)="GoToEditPassword()">Editar contraseña</button>
       <div class="pr-5"></div>
     </div>
   </div>  
   <div style="padding-left: 43%;">
     <div class="inline-flex">
-      <img [src]="retrievedImage" class="h-72 w-60">
+      <img [src]="retrievedImage" class="h-72 w-60" style="border-radius: 50%;">
       <div class="pr-5"></div>
       <button class="pt-40" onclick="document.getElementById('my-file').click()">
         <mat-icon>add</mat-icon>
@@ -93,12 +94,13 @@
   <div *ngIf="editactivate == true">
     <div class="text-right pr-20">
       <div class="inline-flex">
-        <button mat-raised-button (click)="DesactivateEdit()">Cancelar</button>
+        <button mat-raised-button class="bg-black text-white" (click)="DesactivateEdit()">Cancelar</button>
         <div class="pr-5"></div>
-        <button mat-raised-button (click)="EditProfile()" [disabled]="updateform.invalid">Actualizar</button>
+        <button mat-raised-button class="bg-black text-white" (click)="EditProfile()" [disabled]="updateform.invalid">Actualizar</button>
       </div>
     </div>
     <br>
   </div>
 </mat-card>
-<div class="pb-10"></div>
+<div class="pb-40"></div>
+</div>

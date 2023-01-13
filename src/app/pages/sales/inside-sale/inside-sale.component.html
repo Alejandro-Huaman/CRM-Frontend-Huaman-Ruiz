@@ -1,13 +1,14 @@
 <app-header-home></app-header-home>
+<div style="background-image: url('assets/images/home_background.jpg');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
 <div class="pb-5"></div>
-<mat-card class="mat-elevation ml-5 mr-5">
+<mat-card class="mat-elevation ml-5 mr-5" style="border-radius: 15px;">
   <div class="inline-flex">
     <div class="pt-3">
       <mat-icon>add_shopping_cart</mat-icon>
     </div>
     <div class="pr-5"></div>
     <div>
-      <h1>Cotización</h1>
+      <h1 class="font-medium" style="font-size: larger;">Cotización</h1>
       <h2>{{objectsale.name}}</h2>
     </div>
   </div>
@@ -39,8 +40,8 @@
 <table class="w-full">
   <tr>
     <th>
-      <mat-card class="mat-elevation ml-5">
-        <mat-card class="font-normal">
+      <mat-card class="mat-elevation ml-5" style="border-radius: 15px;">
+        <mat-card class="font-normal" style="border-radius: 15px;">
           <h1 class="text-left font-bold">Detalles de la cotización</h1>
           <br>
           <h2 class="text-left">Nombre de cotización: {{objectsale.name}}</h2>
@@ -58,7 +59,7 @@
           <h2 class="text-left">Estado de la cotización: {{salestatus}}</h2>
         </mat-card>
         <div class="pb-5"></div>
-        <mat-card class="text-left font-normal">
+        <mat-card class="text-left font-normal" style="border-radius: 15px;">
           <h1 class="font-bold">Organización</h1>
           <br>
           <div class="inline-flex">
@@ -68,7 +69,7 @@
           </div>
         </mat-card>
         <div class="pb-5"></div>
-        <mat-card class="text-left font-normal">
+        <mat-card class="text-left font-normal" style="border-radius: 15px;">
           <h1 class="font-bold">Resumen General</h1>
           <br>
           <div class="inline-flex">
@@ -87,7 +88,7 @@
     </th>
     <div class="pr-5"></div>
     <th class="align-top">
-      <mat-card class="mat-elevation mr-5">
+      <mat-card class="mat-elevation mr-5" style="border-radius: 15px;">
         <div class="text-left">
           <h1>Añadir actividades</h1>
           <div class="pb-3"></div>
@@ -131,9 +132,9 @@
             </form>
             <div class="text-right">
               <div class="inline-flex">
-                <button mat-raised-button (click)="ClearEmailInputs()">Limpiar</button>
+                <button mat-raised-button class="bg-black text-white" (click)="ClearEmailInputs()">Limpiar</button>
                 <div class="pr-5"></div>
-                <button mat-raised-button (click)="CreateEmail()" [disabled]="emailform.invalid">Enviar</button>
+                <button mat-raised-button class="bg-black text-white" (click)="CreateEmail()" [disabled]="emailform.invalid">Enviar</button>
               </div>
             </div>
             <div class="pb-2"></div>
@@ -195,9 +196,9 @@
             </form>
             <div class="text-right">
               <div class="inline-flex">
-                <button mat-raised-button (click)="ClearAppointForm()">Limpiar</button>
+                <button mat-raised-button class="bg-black text-white" (click)="ClearAppointForm()">Limpiar</button>
                 <div class="pr-5"></div>
-                <button mat-raised-button (click)="CreateAppoint()" [disabled]="appointmentform.invalid">Agregar</button>
+                <button mat-raised-button class="bg-black text-white" (click)="CreateAppoint()" [disabled]="appointmentform.invalid">Agregar</button>
               </div>
             </div>
             <div class="pb-2"></div>
@@ -241,16 +242,16 @@
             </form>
             <div class="text-right">
               <div class="inline-flex">
-                <button mat-raised-button (click)="ClearTaskForm()">Limpiar</button>
+                <button mat-raised-button class="bg-black text-white" (click)="ClearTaskForm()">Limpiar</button>
                 <div class="pr-5"></div>
-                <button mat-raised-button (click)="CreateTask()" [disabled]="taskform.invalid">Agregar</button>
+                <button mat-raised-button class="bg-black text-white" (click)="CreateTask()" [disabled]="taskform.invalid">Agregar</button>
               </div>
             </div>
             <div class="pb-2"></div>
           </div>
       </mat-card>
       <br>
-      <mat-card class="mat-elevation mr-5">
+      <mat-card class="mat-elevation mr-5" style="border-radius: 15px;">
         <div class="text-left">
           <h1>Adjuntar archivo</h1>
           <br>
@@ -268,7 +269,7 @@
             <h1>{{filename}}</h1>
           </div>
           <div class="text-right">
-            <button mat-raised-button (click)="DownloadFile()">Descargar</button>
+            <button mat-raised-button class="bg-black text-white" (click)="DownloadFile()">Descargar</button>
           </div>
         </div>
       </mat-card>
@@ -276,3 +277,4 @@
   </tr>
 </table>
 <div class="pb-5"></div>
+</div>

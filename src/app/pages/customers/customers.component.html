@@ -1,48 +1,47 @@
 <app-header-home></app-header-home>
-<div class="pb-10"></div>
-<mat-card class="mat-elevation mr-5 ml-5">
+<div style="background-image: url('assets/images/home_background.jpg');  background-repeat: no-repeat;  background-position: center;  background-size: cover;">
   <div class="pb-10"></div>
-  <div class="text-center">
-    <div class="inline-flex">
-      <h1 class="pt-2">Clientes!</h1>
-      <div class="pr-96"></div>
-      <div class="pr-96"></div>
-      <div class="pr-96"></div>
-      <div class="pr-60"></div>
-      <button mat-raised-button (click)="OpenCreateCustomer()">
-        Agregar clientes
-      </button>
+  <mat-card class="mat-elevation mr-5 ml-5 bg-blue-900" style="border-radius: 15px;">
+    <div class="pb-5"></div>
+    <div class="text-center">
+      <div class="inline-flex">
+        <h1 class="pt-2 text-white font-medium">Clientes!</h1>
+        <div class="pr-96"></div>
+        <div class="pr-96"></div>
+        <div class="pr-96"></div>
+        <div class="pr-60"></div>
+        <button mat-raised-button color="primary" (click)="OpenCreateCustomer()">
+          Agregar clientes
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="pb-10"></div>
+    <div class="pb-10"></div>
 
-  <div class="border ml-5 mr-5">
-    <table mat-table [dataSource]="dataSource.data" class="w-full">
+    <div class="border ml-5 mr-5">
+      <table mat-table [dataSource]="dataSource.data" class="w-full bg-blue-300 text-center">
 
-      <ng-container matColumnDef="Razon Social">
-        <th mat-header-cell *matHeaderCellDef>Razon social</th>
-        <td mat-cell *matCellDef="let element"> {{element.businessname}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="Ruc">
-        <th mat-header-cell *matHeaderCellDef> Ruc</th>
-        <td mat-cell *matCellDef="let element"> {{element.ruc}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="Codigo">
-        <th mat-header-cell *matHeaderCellDef>Código de Cliente</th>
-        <td mat-cell *matCellDef="let element"> {{element.customercode}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                   showFirstLastButtons 
-                   aria-label="Select page of periodic elements">
-    </mat-paginator>
-  </div>
-  <div class="pb-5"></div>
-</mat-card>
-<div class="pb-5"></div>
+        <ng-container matColumnDef="Razon Social">
+          <th mat-header-cell *matHeaderCellDef> <h1 class="text-center">Razon social</h1></th>
+          <td mat-cell *matCellDef="let element"> {{element.businessname}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Ruc">
+          <th mat-header-cell *matHeaderCellDef> <h1 class="text-center">Ruc</h1></th>
+          <td mat-cell *matCellDef="let element"> {{element.ruc}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Codigo">
+          <th mat-header-cell *matHeaderCellDef> <h1 class="text-center">Código de Cliente</h1></th>
+          <td mat-cell *matCellDef="let element"> {{element.customercode}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div class="pb-5"></div>
+  </mat-card>
+  <div class="pb-96"></div>
+  <div class="pb-28"></div>
+  <div class="pb-2"></div>
+</div>
