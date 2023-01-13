@@ -7,8 +7,8 @@ import { Extension } from 'src/app/models/extension';
   providedIn: 'root'
 })
 export class FileService {
-
-  basePath = 'http://localhost:8080/api/v1/file';
+  basePath = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/file'
+  //basePath = 'http://localhost:8080/api/v1/file';
   
   httpOptions = {
     headers: new HttpHeaders({

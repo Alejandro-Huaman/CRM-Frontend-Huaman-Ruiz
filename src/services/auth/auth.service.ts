@@ -10,8 +10,8 @@ import { NewUser } from 'src/app/models/newUser';
 })
 export class AuthService {
   
-  //basePath = 'https://fortlom-account.herokuapp.com/auth';
-  basePath = 'http://localhost:8080/auth';
+  basePath = 'https://crm-backend-huaman-ruiz-production.up.railway.app/auth';
+  //basePath = 'http://localhost:8080/auth';
 
   httpOptions = {
     headers: new HttpHeaders({

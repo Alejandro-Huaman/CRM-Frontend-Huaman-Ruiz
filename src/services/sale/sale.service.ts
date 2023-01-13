@@ -8,11 +8,14 @@ import { Sale } from 'src/app/models/sale';
 })
 export class SaleService {
 
-  //basePath = 'https://fortlom-account.herokuapp.com/api/v1/users';
-  basePath = 'http://localhost:8080/api/v1/sales';
-  basePath2 = 'http://localhost:8080/api/v1/status';
-  basePath3 = 'http://localhost:8080/api/v1/user';
-  basePath4 = 'http://localhost:8080/api/v1/numbersales';
+  basePath = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/sales';
+  basePath2 = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/status';
+  basePath3 = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/user';
+  basePath4 = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/numbersales';
+  //basePath = 'http://localhost:8080/api/v1/sales';
+  //basePath2 = 'http://localhost:8080/api/v1/status';
+  //basePath3 = 'http://localhost:8080/api/v1/user';
+  //basePath4 = 'http://localhost:8080/api/v1/numbersales';
   
   
   httpOptions = {

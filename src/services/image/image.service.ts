@@ -8,9 +8,10 @@ import { Image } from 'src/app/models/image';
 })
 export class ImageService {
 
-  //basePath = 'https://fortlom-multimedia.herokuapp.com/api/v1/multimediaservice';
-  basePath = 'http://localhost:8080/api/v1/images';
-  basePath2 = 'http://localhost:8080/api/v1/upload';
+  basePath = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/images';
+  basePath2 = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/upload';
+  //basePath = 'http://localhost:8080/api/v1/images';
+  //basePath2 = 'http://localhost:8080/api/v1/upload';
   
   httpOptions = {
     headers: new HttpHeaders({

@@ -8,9 +8,11 @@ import { Task } from 'src/app/models/task';
 })
 export class TaskService {
 
-  //basePath = 'https://fortlom-account.herokuapp.com/api/v1/users';
-  basePath = 'http://localhost:8080/api/v1/tasks';
-  basePath2 = 'http://localhost:8080/api/v1/sales';
+  basePath = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/tasks';
+  basePath2 = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/sales';
+  
+  //basePath = 'http://localhost:8080/api/v1/tasks';
+  //basePath2 = 'http://localhost:8080/api/v1/sales';
   
   httpOptions = {
     headers: new HttpHeaders({

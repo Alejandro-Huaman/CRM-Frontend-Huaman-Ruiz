@@ -7,7 +7,8 @@ import { catchError, retry, throwError } from 'rxjs';
 })
 export class EmailService {
   
-  basePath = 'http://localhost:8080/api/v1/email';
+  basePath = 'https://crm-backend-huaman-ruiz-production.up.railway.app/api/v1/email'
+  //basePath = 'http://localhost:8080/api/v1/email';
   
   httpOptions = {
     headers: new HttpHeaders({
